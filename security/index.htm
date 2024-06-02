@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# product: http://ogp.me/ns/product#">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Авторизируетесь</title>
+    <meta name="viewport" content="width=device-width">
+    
+<script>
+(function (w) {
+    w.GLOBAL = {
+        SYSTEM_LANGUAGE: 4,
+        FIRST_LANGUAGE: 3,
+        DOMAIN: "design213.horoshop.ua",
+        SITE_NAME: "VR SPACE",
+        URI_PREFIX: "/en/",
+        URI_SUFFIX: "/",
+        theme: "horoshop_default",
+        currency: {"id":"3","i18n_language":"0","title":"USD","abbr":"$","position":"1","sortorder":"2","iso":"USD","abbr_penny":"коп.","enabled_in_front":"1","sign":"$"},
+        round_to: "0",
+        isGuest: true,
+        USER_ID: null,
+        open_cart_on_add: false,
+        cart_animation: true,
+        phone_mask: "+38 (099) 999-99-99",
+        use_countries: false,
+        enable_phone_mask_on_input: true,
+        marketingEvents: {"cart_creation":[function (model, eventId) {
+            try {
+                var products = model.Cart.products,
+    ids = [],
+    totalPrice = model.Cart.total.sum;
+
+for (key in products) {
+    ids.push(products[key].article + '');
+}
+
+gtag('event', 'Создание корзины', {
+    'event_category'  : 'Корзина',
+    'event_label'     : 'GLOBAL.DOMAIN',
+    'ecomm_prodid'    : ids,
+    'ecomm_pagetype'  : 'cart',
+    'ecomm_totalvalue': totalPrice
+});
+            } catch(e) {
+                console.error(e);
+            }
+        }],"cart_product_add":[function (model, eventId) {
+            try {
+                var products = model.Cart.products,
+    ids = [],
+    totalPrice = model.Cart.total.sum;
+
+for (key in products) {
+    ids.push(products[key].article + '');
+}
+
+gtag('event', 'add_to_cart', {
+    'currency': GLOBAL.currency.iso,
+    'value': totalPrice,
+    'items': [
+        {
+            'item_id': model.article + '',
+            'item_name': model.title,
+            'quantity': model.quantity * 1,
+            'price': model.price * 1
+        }
+    ],
+    'ecomm_prodid': ids,
+    'ecomm_pagetype': 'cart',
+    'ecomm_totalvalue': totalPrice
+});
+            } catch(e) {
+                console.error(e);
+            }
+        }],"cart_product_update":[],"cart_product_remove":[function (model, eventId) {
+            try {
+                var products = model.Cart.products,
+    ids = [],
+    totalPrice = model.Cart.total.sum;
+
+for (key in products) {
+    ids.push(products[key].article + '');
+}
+
+gtag('event', 'remove_from_cart', {
+    'currency': GLOBAL.currency.iso,
+    'value': totalPrice,
+    'items': [
+        {
+            'item_id': model.article + '',
+            'item_name': model.title,
+            'quantity': model.quantity * 1,
+            'price': model.price * 1
+        }
+    ],
+    'ecomm_prodid': ids,
+    'ecomm_pagetype': 'cart',
+    'ecomm_totalvalue': totalPrice
+});
+            } catch(e) {
+                console.error(e);
+            }
+        }],"quick_search":[],"checkout_success":[function (order_id, cart, name, email, phone, eventId) {
+            try {
+                var items = [],
+    products = cart.products,
+    ids = [];
+
+for (var i = 0, l = products.length; i < l; ++i) {
+    var product = products[i];
+
+    items.push({
+        'item_id': product.article,
+        'item_name': product.title + ' (артикул: ' + product.article_for_display + ')',
+        'quantity': product.quantity * 1,
+        'price': product.price * 1
+    });
+
+    ids.push(product.article);
+}
+
+gtag('event', 'purchase', {
+    'transaction_id': order_id,
+    'affiliation': GLOBAL.SITE_NAME,
+    'value': cart.total.total.sum,
+    'currency': GLOBAL.currency.iso,
+    'tax': 0,
+    'shipping': cart.delivery_price,
+    'coupon': cart.total.coupon_data.code,
+    'items': items,
+    'ecomm_prodid': ids,
+    'ecomm_pagetype': 'purchase',
+    'ecomm_totalvalue': cart.total.total.sum
+});
+            } catch(e) {
+                console.error(e);
+            }
+        }],"newsletter_subscription":[function (model, eventId) {
+            try {
+                gtag('event', 'Подписка на рассылку', {
+        'event_category': 'Рассылка',
+        'event_label'   : 'GLOBAL.DOMAIN'
+    });
+            } catch(e) {
+                console.error(e);
+            }
+        }],"callback_submit":[function (model, eventId) {
+            try {
+                gtag('event', 'Запрос обратного звонка', {
+        'event_category': 'Обратный звонок',
+        'event_label'   : 'GLOBAL.DOMAIN'
+    });
+            } catch(e) {
+                console.error(e);
+            }
+        }],"registration_success":[],"authorization_success":[],"ajax_page_view":[function (model, eventId) {
+            try {
+                gtag('config', 'UA-12345-6', {
+  'page_path': model
+});
+            } catch(e) {
+                console.error(e);
+            }
+        }],"add_to_wishlist":[]},
+        content_copy_protection: false,
+        GLOBAL_CSRF_TOKEN: 'f0922a6ebcda9800b31752ffdb984301a5c9cff6'
+    };
+    w.dataLayer = w.dataLayer || [];
+})(window);
+</script>
+<link href='../../assets/default/production/styles.3462a6d4186005c20ff6dfd5318e7d59.css' type='text/css' rel='stylesheet'>
+<link href='../../assets/default/production/client.31d6cfe0d16ae931b73c59d7e0c089c0.css' type='text/css' rel='stylesheet'>
+    <script src="../globals.js/index.htm?version=984d2514c8fbc9763dfce7dbaa277658"></script>
+
+<script src='../../assets/cache/horoshop_default_main.js?1709578898'></script>
+    <link rel="shortcut icon" href="../../assets/favicon.ico" type="image/x-icon">
+    <script>
+  (function (window, document) {
+    'use strict';
+
+    var file = '/frontend/themes/horoshop_default/layout/img/icons-default.svg',
+      revision = '5e0aac92858cef2a9e7f5ecff295922a';
+
+    var isLocalStorage = 'localStorage' in window && window['localStorage'] !== null,
+      request,
+      data,
+      insertIT = function () {
+        var template = document.createElement('template');
+
+        template.innerHTML = data;
+        document.body.prepend(template.content.firstChild);
+      },
+      insert = function()
+      {
+          if( document.body ) insertIT();
+          else document.addEventListener( 'DOMContentLoaded', insertIT );
+      };
+
+    if (isLocalStorage && localStorage.getItem('inlineSVGrev') === revision) {
+      data = localStorage.getItem('inlineSVGdata');
+
+      if (data) {
+        insert();
+        return true;
+      }
+    }
+
+    try {
+      request = new XMLHttpRequest();
+      request.open('GET', file, true);
+      request.onload = function () {
+        if (request.status >= 200 && request.status < 400) {
+          data = request.responseText;
+          insert();
+          if (isLocalStorage) {
+            localStorage.setItem('inlineSVGdata', data);
+            localStorage.setItem('inlineSVGrev', revision);
+          }
+        }
+      }
+      request.send();
+    } catch (e) {
+    }
+
+  }(window, document));
+</script></head>
+<body class="security-page">
+<main class="wrapper">
+    <div class="security-page__content">
+        <div class="security-page__logo">
+        <a href="../index.htm">
+            <img alt='DemoStore - a demo online store' class='security-page__logo-img' width='200' height='100' src='../../content/images/2/200x100l90nn0/75962282142424.jpg' srcset="
+                ../../content/images/2/200x100l90nn0/75962282142424.jpg 1x,/content/images/2/400x200l50nn0/75962282142424.jpg 2x">        </a>
+    </div>
+<div id="auth_forms" class="security-page__forms">
+    <div class="login-header">
+        <div class="login-tabs j-auth-tabs">
+            <a href="#j-popup-tab-auth" class="login-tabs-i __active">
+                <span class="login-tabs-txt">Sign in</span>
+            </a>
+            <a href="#j-popup-tab-signup" class="login-tabs-i">
+                <span class="login-tabs-txt">Sign up</span>
+            </a>
+        </div>
+        <div class="socLogin">
+    <div class="socLogin-h">Sign in with</div>
+    <div class="socLogin-b">
+                                                <a rel="nofollow" data-fake-href="/en/security/OAuthRedirect/?soc=facebook&saveCart=0" onclick="OAuth.setScenario('default'); showPopup(this.href, 997, 490); return false;" class="socialIcon">
+                    <svg class="icon icon--fb">
+                        <use xlink:href="#icon-fb"></use>
+                    </svg>
+                </a>
+                                                                                                <a rel="nofollow" data-fake-href="/en/security/OAuthRedirect/?soc=google&saveCart=0" onclick="OAuth.setScenario('default'); showPopup(this.href, 997, 490); return false;" class="socialIcon">
+                    <svg class="icon icon--gp">
+                        <use xlink:href="#icon-gp"></use>
+                    </svg>
+                </a>
+                                    </div>
+</div>    </div>
+
+    <div class="login-body">
+        <div class="login-tabs-content" data-content-id="j-popup-tab-auth">
+            <form method="post" id="login_form_id" data-action="/en/security/login/" onsubmit="submit_authorization(this); return false;">
+    <div class="j-login-info-message"></div>
+    <dl class="form">
+        <dt class="form-head">Email</dt>
+        <dd class="form-item">
+            <input type="email" name="user[email]" class="field j-focus" tabindex="1" autocapitalize="off">
+        </dd>
+        <dt class="form-head">Password</dt>
+        <dd class="form-item">
+            <input type="password" name="user[pass]" class="field" tabindex="2">
+        </dd>
+        <dd class="form-item __submit">
+            <span class="btn __special">
+                <span class="btn-content">Sign in</span>
+                <input type="submit" value="Sign in" class="btn-input" tabindex="3">
+            </span>
+            <span class="form-passRecover">
+                <a href="javascript:void(0);" class="a-pseudo" data-modal="#password-recovery">
+                    Forgot your password?                </a>
+            </span>
+        </dd>
+    </dl>
+    <script>(function(w) {w.INIT.add(function() {(function ($) {var i=$('<input>').attr({name:"CSRFToken",type:'hidden'}).val("543ec353b0ce954dac7e31d95e82251348ed5c43");$("#login_form_id").append(i);})(jQuery)}, 'jQuery' in window)})(window)</script></form>        </div>
+
+        <div class="login-tabs-content" data-content-id="j-popup-tab-signup">
+            <form method="post" id="signup-form" data-action="/en/security/sign_up/" onsubmit="submit_new_registration(this); return false;" novalidate="">
+    <div class="j-signup-info-message"></div>
+    <dl class="form">
+        <dt class="form-head __name">Name</dt>
+        <dd class="form-item">
+            <input type="text" name="user[title]" class="field" value="" tabindex="1">
+        </dd>
+        <dt class="form-head">Email</dt>
+        <dd class="form-item">
+            <input type="text" autocapitalize="off" name="user[email]" class="field" value="" tabindex="2">
+        </dd>
+                <dt class="form-head">Password</dt>
+        <dd class="form-item">
+            <input type="password" name="user[pass]" class="field" value="" tabindex="3">
+        </dd>
+                <dd class="form-item __submit">
+                                    <span class="btn __special j-submit ">
+                <span class="btn-content">Sign up</span>
+                <input type="submit" value="Sign up" class="btn-input" tabindex="7">
+            </span>
+                            <div class="user-agreement user-agreement--signup ">
+            By confirming the registration, I accept the terms of the user agreement    </div>                    </dd>
+    </dl>
+    <script>(function(w) {w.INIT.add(function() {(function ($) {var i=$('<input>').attr({name:"CSRFToken",type:'hidden'}).val("66903c2ec26738e716968a573d637bf8ac16ab6a");$("#signup-form").append(i);})(jQuery)}, 'jQuery' in window)})(window)</script></form>
+
+<script>
+  (function (w) {
+    w.INIT.add(function () {
+          }, w.Face)
+  })(window);
+</script>
+        </div>
+    </div>
+</div>
+
+<script>
+  (function(w) {
+    w.INIT.add(function() {
+      initTabs('#auth_forms .j-auth-tabs a', {
+         onChange: function (currentBtn, currentTabContainer, tabContainers) {
+           $(tabContainers).find('.popup-msg').empty();
+           $(tabContainers).find('form').reset();
+           $(currentTabContainer).find(':input').errorBox().filter(':first').focus();
+         }
+       });
+    }, w.initTabs)
+  })(window);
+</script>
+
+<section id="password-recovery" class="popup __password" style="display: none;">
+    <div class="popup-block login">
+        <a class="popup-close" onclick="Modal.close();" href="javascript:;">
+            <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
+        </a>
+        <div class="popup-header">
+            <div class="popup-title">Password reset</div>
+        </div>
+        <div class="popup-body">
+            <div class="popup-msg j-recovery-message">
+                Enter your email address and we'll send you the information for password reset.            </div>
+            <form id="password-recovery-form" method="post" data-action="/en/security/password-recovery/" onsubmit="password_recovery_submit(this); return false;">
+    <dl class="form">
+        <dt class="form-head">Email</dt>
+        <dd class="form-item">
+            <input type="email" autocapitalize="off" value="" class="field j-focus" name="user[email]">
+        </dd>
+        <dd class="form-item __submit">
+                            <span class="btn __special">
+                                <span class="btn-content">Reset</span>
+                                <input type="submit" value="Reset" class="btn-input">
+                            </span>
+        </dd>
+    </dl>
+    <script>(function(w) {w.INIT.add(function() {(function ($) {var i=$('<input>').attr({name:"CSRFToken",type:'hidden'}).val("f6ee50e7911715fbda667844e6118264c2391264");$("#password-recovery-form").append(i);})(jQuery)}, 'jQuery' in window)})(window)</script></form>        </div>
+    </div>
+</section>    </div>
+</main>
+
+<script src='../../bundles/default/production/main-2b4841d6.d2f14e0390f66b94a2b1.js'></script>
+<script src='../../bundles/default/production/runtime.81af93c644b99b99d27e.js'></script>
+<script src='../../bundles/default/production/npm.spritespin.ae06fb361a59b14f6252.js'></script>
+<script src='../../bundles/default/production/npm.inputmask.711c890d9833df84dc83.js'></script>
+<script src='../../bundles/default/production/npm.jquery-13d81934.3f02b0283ddee7920906.js'></script>
+<script src='../../bundles/default/production/npm.sticky-sidebar.9b1aed998b438a0502a9.js'></script>
+<script src='../../bundles/default/production/npm.sourcebuster.190de06c3cb5f9541d9a.js'></script>
+<script src='../../bundles/default/production/npm.popper.js.46626cd1331d2ebd1e93.js'></script>
+<script src='../../bundles/default/production/npm.css-element-queries.e72e021709f421f869d0.js'></script>
+<script src='../../bundles/default/production/main-44867c3a.6bc16e180baeaa05e8e0.js'></script>
+<script src='../../bundles/default/production/main-e498c03b.c754bd6c04b4bc02d3a9.js'></script>
+<script src='../../bundles/default/production/main-12f89153.c4078d0f6e3f24171a12.js'></script>
+<script src='../../bundles/default/production/main-2d8f051b.95225d1c6f77100fe2c2.js'></script>
+<script src='../../bundles/default/production/main-5ae6720c.4255e1ed76eacd93707e.js'></script>
+<script src='../../bundles/default/production/main-886f090d.998d71870c275b9cbf2a.js'></script>
+<script src='../../bundles/default/production/main-47f80845.cd90b100a18fced03795.js'></script>
+<script src='../../bundles/default/production/npm.jquery-b59a2ec2.c32010b03ac8c4e981f5.js'></script>
+
+<script>
+  (function (w) {
+    w.INIT.execute();
+  })(window)
+</script>
+<div id="modal-overlay" class="overlay"></div>
+</body>
+
+</html>

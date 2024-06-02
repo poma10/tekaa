@@ -1,0 +1,2027 @@
+﻿<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns#" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>DemoStore - a demo online store</title>
+<meta name="robots" content="all">
+<link rel="canonical" href="index.htm">
+<link rel="alternate" hreflang="uk" href="../index.htm">
+<link rel="alternate" hreflang="en" href="index.htm">
+    <meta property="fb:app_id" content="1549421258656938">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="DemoStore - a demo online store">
+<meta property="og:title" content="Home">
+<meta property="og:url" content="https://design213.horoshop.ua/en/">
+<meta property="og:description" content="">
+<meta property="og:image" content="https://design213.horoshop.ua/content/images/2/1200x1200l90nn0/74610217440953.jpg">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org/",
+    "@type": "WebSite",
+    "url": "https://design213.horoshop.ua/",
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://design213.horoshop.ua/en/katalog/search/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+    }
+}
+</script>
+    <link rel='preload' as='image' href='../content/images/25/1920x768e90nn0/35339608422069.jpg' imagesrcset='/content/images/25/1920x768e90nn0/35339608422069.jpg 1920w, /content/images/25/3840x1536e90nn0/35339608422069.jpg 3840w' imagesizes='100vw'>    
+<script>
+(function (w) {
+    w.GLOBAL = {
+        SYSTEM_LANGUAGE: 4,
+        FIRST_LANGUAGE: 3,
+        DOMAIN: "design213.horoshop.ua",
+        SITE_NAME: "VR SPACE",
+        URI_PREFIX: "/en/",
+        URI_SUFFIX: "/",
+        theme: "horoshop_default",
+        currency: {"id":"3","i18n_language":"0","title":"USD","abbr":"$","position":"1","sortorder":"2","iso":"USD","abbr_penny":"коп.","enabled_in_front":"1","sign":"$"},
+        round_to: "0",
+        isGuest: true,
+        USER_ID: null,
+        open_cart_on_add: false,
+        cart_animation: true,
+        phone_mask: "+38 (099) 999-99-99",
+        use_countries: false,
+        enable_phone_mask_on_input: true,
+        marketingEvents: {"cart_creation":[function (model, eventId) {
+            try {
+                var products = model.Cart.products,
+    ids = [],
+    totalPrice = model.Cart.total.sum;
+
+for (key in products) {
+    ids.push(products[key].article + '');
+}
+
+gtag('event', 'Создание корзины', {
+    'event_category'  : 'Корзина',
+    'event_label'     : 'GLOBAL.DOMAIN',
+    'ecomm_prodid'    : ids,
+    'ecomm_pagetype'  : 'cart',
+    'ecomm_totalvalue': totalPrice
+});
+            } catch(e) {
+                console.error(e);
+            }
+        }],"cart_product_add":[function (model, eventId) {
+            try {
+                var products = model.Cart.products,
+    ids = [],
+    totalPrice = model.Cart.total.sum;
+
+for (key in products) {
+    ids.push(products[key].article + '');
+}
+
+gtag('event', 'add_to_cart', {
+    'currency': GLOBAL.currency.iso,
+    'value': totalPrice,
+    'items': [
+        {
+            'item_id': model.article + '',
+            'item_name': model.title,
+            'quantity': model.quantity * 1,
+            'price': model.price * 1
+        }
+    ],
+    'ecomm_prodid': ids,
+    'ecomm_pagetype': 'cart',
+    'ecomm_totalvalue': totalPrice
+});
+            } catch(e) {
+                console.error(e);
+            }
+        }],"cart_product_update":[],"cart_product_remove":[function (model, eventId) {
+            try {
+                var products = model.Cart.products,
+    ids = [],
+    totalPrice = model.Cart.total.sum;
+
+for (key in products) {
+    ids.push(products[key].article + '');
+}
+
+gtag('event', 'remove_from_cart', {
+    'currency': GLOBAL.currency.iso,
+    'value': totalPrice,
+    'items': [
+        {
+            'item_id': model.article + '',
+            'item_name': model.title,
+            'quantity': model.quantity * 1,
+            'price': model.price * 1
+        }
+    ],
+    'ecomm_prodid': ids,
+    'ecomm_pagetype': 'cart',
+    'ecomm_totalvalue': totalPrice
+});
+            } catch(e) {
+                console.error(e);
+            }
+        }],"quick_search":[],"checkout_success":[function (order_id, cart, name, email, phone, eventId) {
+            try {
+                var items = [],
+    products = cart.products,
+    ids = [];
+
+for (var i = 0, l = products.length; i < l; ++i) {
+    var product = products[i];
+
+    items.push({
+        'item_id': product.article,
+        'item_name': product.title + ' (артикул: ' + product.article_for_display + ')',
+        'quantity': product.quantity * 1,
+        'price': product.price * 1
+    });
+
+    ids.push(product.article);
+}
+
+gtag('event', 'purchase', {
+    'transaction_id': order_id,
+    'affiliation': GLOBAL.SITE_NAME,
+    'value': cart.total.total.sum,
+    'currency': GLOBAL.currency.iso,
+    'tax': 0,
+    'shipping': cart.delivery_price,
+    'coupon': cart.total.coupon_data.code,
+    'items': items,
+    'ecomm_prodid': ids,
+    'ecomm_pagetype': 'purchase',
+    'ecomm_totalvalue': cart.total.total.sum
+});
+            } catch(e) {
+                console.error(e);
+            }
+        }],"newsletter_subscription":[function (model, eventId) {
+            try {
+                gtag('event', 'Подписка на рассылку', {
+        'event_category': 'Рассылка',
+        'event_label'   : 'GLOBAL.DOMAIN'
+    });
+            } catch(e) {
+                console.error(e);
+            }
+        }],"callback_submit":[function (model, eventId) {
+            try {
+                gtag('event', 'Запрос обратного звонка', {
+        'event_category': 'Обратный звонок',
+        'event_label'   : 'GLOBAL.DOMAIN'
+    });
+            } catch(e) {
+                console.error(e);
+            }
+        }],"registration_success":[],"authorization_success":[],"ajax_page_view":[function (model, eventId) {
+            try {
+                gtag('config', 'UA-12345-6', {
+  'page_path': model
+});
+            } catch(e) {
+                console.error(e);
+            }
+        }],"add_to_wishlist":[]},
+        content_copy_protection: false,
+        GLOBAL_CSRF_TOKEN: '7345f3875aeaf52faff2ba5a0a7038f38c9ca1df'
+    };
+    w.dataLayer = w.dataLayer || [];
+})(window);
+</script>
+<link href='../assets/default/production/styles.3462a6d4186005c20ff6dfd5318e7d59.css' type='text/css' rel='stylesheet'>
+<link href='../assets/default/production/client.31d6cfe0d16ae931b73c59d7e0c089c0.css' type='text/css' rel='stylesheet'>
+    <script src="globals.js/index.htm?version=984d2514c8fbc9763dfce7dbaa277658"></script>
+
+<script src='../assets/cache/horoshop_default_main.js?1709578898'></script>
+
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <script>
+  (function (window, document) {
+    'use strict';
+
+    var file = '/frontend/themes/horoshop_default/layout/img/icons-default.svg',
+      revision = '5e0aac92858cef2a9e7f5ecff295922a';
+
+    var isLocalStorage = 'localStorage' in window && window['localStorage'] !== null,
+      request,
+      data,
+      insertIT = function () {
+        var template = document.createElement('template');
+
+        template.innerHTML = data;
+        document.body.prepend(template.content.firstChild);
+      },
+      insert = function()
+      {
+          if( document.body ) insertIT();
+          else document.addEventListener( 'DOMContentLoaded', insertIT );
+      };
+
+    if (isLocalStorage && localStorage.getItem('inlineSVGrev') === revision) {
+      data = localStorage.getItem('inlineSVGdata');
+
+      if (data) {
+        insert();
+        return true;
+      }
+    }
+
+    try {
+      request = new XMLHttpRequest();
+      request.open('GET', file, true);
+      request.onload = function () {
+        if (request.status >= 200 && request.status < 400) {
+          data = request.responseText;
+          insert();
+          if (isLocalStorage) {
+            localStorage.setItem('inlineSVGdata', data);
+            localStorage.setItem('inlineSVGrev', revision);
+          }
+        }
+      }
+      request.send();
+    } catch (e) {
+    }
+
+  }(window, document));
+</script>        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src='../gtag/js?id=UA-12345-6'></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-12345-6');
+</script>                    </head>
+<body class="homepage en-US" itemscope="" itemtype="https://schema.org/WebPage">
+            
+    <div class="session-messages" id="j-sm" style="display:none;"></div>
+    <div class="container">
+                <div class="header">
+    <div class="header__container">
+                    <div class="header__top">
+                <div class="header__wrapper">
+                    <div class="header__layout header__layout--top">
+                                                    <div class="header__column header__column--left ">
+                                                                    <div class="header__section">
+    <nav class="site-menu j-site-menu">
+        <!--
+                            --><span class="site-menu__item"><a class="site-menu__link" href="o-nas/index.htm">About us</a></span><!--
+                            --><span class="site-menu__item"><a class="site-menu__link" href="oplata-i-dostavka/index.htm">Payment and delivery</a></span><!--
+                            --><span class="site-menu__item"><a class="site-menu__link" href="obmen-i-vozvrat/index.htm">Returns & Exchanges</a></span><!--
+                            --><span class="site-menu__item"><a class="site-menu__link" href="kontaktnaja-informacija/index.htm">Contacts</a></span><!--
+                            --><span class="site-menu__item"><a class="site-menu__link" href="blog/index.htm">Blog</a></span><!--
+                            --><span class="site-menu__item"><a class="site-menu__link" href="store-reviews/index.htm">Store reviews</a></span><!--
+        -->
+    </nav>
+    <script>
+      (function (w) {
+        w.INIT.add(function() {
+          $('.site-menu').siteMenuDropdown({
+            buttonText: "More",
+            wrapper: '.header__column',
+            siblings: '.header__section'
+          })
+        }, w.$)
+      })(window);
+    </script></div>                                                                        <div class="header__section">
+        <div class="social-icons"><!--
+            --><a class="social-icons__item" data-fake-href="https://www.facebook.com/horoshop.com.ua" rel="nofollow" target="_blank" title="Facebook"><svg class="social-icons__img icon-fb"><use xlink:href="#icon-fb"></use></svg></a><!--
+            --><a class="social-icons__item" data-fake-href="https://twitter.com/" rel="nofollow" target="_blank" title="Twitter"><svg class="social-icons__img icon-tw"><use xlink:href="#icon-tw"></use></svg></a><!--
+            --><a class="social-icons__item" data-fake-href="https://instagram.com/" rel="nofollow" target="_blank" title="Instagram"><svg class="social-icons__img icon-ig"><use xlink:href="#icon-ig"></use></svg></a><!--
+            --><a class="social-icons__item" data-fake-href="viber://pa?chatURI=" rel="nofollow" target="_blank" title="Viber"><svg class="social-icons__img icon-viber"><use xlink:href="#icon-viber"></use></svg></a><!--
+        --></div>    </div>     
+                                                            </div>
+                                                                                                    <div class="header__column header__column--right ">
+                                                                    <div class="header__section">
+    <ul class="lang-menu" data-widget="lang_menu" data-skin="header_top" data-show-icon="">
+                                            <li class="lang-menu__item">
+                    <a href="../index.htm" class="lang-menu__link">
+                        Укр                    </a>
+                </li>
+                                                <li class="lang-menu__item is-active">
+                    <span class="lang-menu__link">Eng</span>
+                </li>
+                        </ul></div>                                                                    <div class="header__section">
+    <div data-widget="userbar" data-skin="header_top">
+            <div class="userbar j-user-tabs">
+            <a class="userbar__button" data-fake-href="#j-popup-tab-auth" data-modal="#sign-in">
+                <svg class="icon icon--user"><use xlink:href="#icon-user"></use></svg>
+                <span class="userbar__button-text">Sign in</span>
+            </a>
+        </div>
+        <script>
+          (function(w) {
+            w.INIT.add(function() {
+              initTabs('.j-user-tabs a', {triggerMap: true});
+            })
+          })(window);
+        </script>
+    </div>
+<script>
+  (function (w) {
+    w.INIT.add(function () {
+      $('.userbar__dropdown').dropdown({
+        trigger: '.userbar__button',
+        parentNode: null,
+        visibleClass: 'is-visible',
+        hoverClass: 'is-hover'
+      });
+    }, w.$)
+  })(window);
+</script></div>                                                            </div>
+                                            </div>
+                </div>
+            </div>
+                <div class="header__middle">
+            <div class="header__wrapper">
+                <div class="header__layout header__layout--middle">
+                                            <div class="header__column header__column--left ">
+                                                            <div class="header__section">
+    <div class="header__logo">
+                    <img alt='DemoStore - a demo online store' class='header-logo-img' width='200' height='100' src='../content/images/2/200x100l90nn0/75962282142424.jpg' srcset="
+                                ../content/images/2/200x100l90nn0/75962282142424.jpg 1x,/content/images/2/400x200l50nn0/75962282142424.jpg 2x">            </div></div>                                                    </div>
+                                                                <div class="header__column header__column--wide header__column--vertical">
+                                                            <div class="header__row">
+                                                                            <div class="header__section header__section--contacts">
+    <div class="phones phones--header phones--inline">
+            <div class="phones__list">
+                            <div class="phones__item">
+                                                                        <svg class="icon icon--phone">
+                                <use xlink:href="#icon-phone"></use>
+                            </svg>
+                                                                <a data-fake-href="tel:%2B380440000000" class="phones__item-link j-phone-item" data-index="1">
+                        095 000-00-00                    </a>
+                </div>
+                            <div class="phones__item">
+                                                                        <svg class="icon icon--phone">
+                                <use xlink:href="#icon-phone"></use>
+                            </svg>
+                                                                <a data-fake-href="tel:%2B380440000000" class="phones__item-link j-phone-item" data-index="2">
+                        095 000-00-00                    </a>
+                </div>
+                    </div>
+                <div class="phones__callback">
+            <a class="phones__callback-link" href="#" data-modal="#call-me">
+                Call me back            </a>
+        </div>
+        </div>
+    <section id="call-me" class="popup __password" style="display: none;">
+    <div class="popup-block login">
+        <a class="popup-close" onclick="Modal.close();" href="javascript:;">
+            <svg class="icon icon--cross">
+                <use xlink:href="#icon-cross"></use>
+            </svg>
+        </a>
+        <div class="popup-header">
+            <div class="popup-title">Callback</div>
+        </div>
+        <div class="popup-body j-text">
+            <div class="popup-msg j-callback-message">Type your phone number and we will call you back shortly</div>
+            <form method="post" data-action="/en/_widget/contacts/submit-callback/">
+                <dl class="form">
+                    <dt class="form-head">Name</dt>
+                    <dd class="form-item">
+                        <input type="text" value="" class="field j-focus" name="form[title]">
+                    </dd>
+                    <dt class="form-head">Phone</dt>
+                    <dd class="form-item">
+                        <input type="text" value="" class="field j-phone" name="form[phone]">
+                        <input type="hidden" value="/en/" name="form[url]">
+                    </dd>
+                    <dd class="form-item __submit">
+                        <span class="btn __special">
+                            <span class="btn-content">Send</span>
+                            <input type="submit" value="Send" class="btn-input">
+                        </span>
+                    </dd>
+                </dl>
+                <script>(function(w) {w.INIT.add(function() {(function ($) {var i=$('<input>').attr({name:"CSRFToken",type:'hidden'}).val("cce7fd6789074c1311f90cbba21b6820ff025125");$("#call-me form").append(i);})(jQuery)}, 'jQuery' in window)})(window)</script>            </form>
+        </div>
+    </div>
+</section>
+<script>
+    (function (w) {
+        w.INIT.add(function () {
+            ActiveForm.init($('#call-me').find('form'), {
+                'submitSuccess': function (response) {
+                    $('#call-me').find('.j-text').html(response.message);
+                    triggerMarketingEvent('callback_submit', [null, response.eventId]);
+                }
+            }, 'form');
+        }, w.ActiveForm)
+    })(window);
+</script></div>                                                                    </div>
+                                                                                        <div class="header__row">
+                                    <div class="header__column">
+                                                                                    <div class="header__section header__section--search">
+    <div class="search j-search">
+    <form method="get" data-action="/en/katalog/search/">
+        <button type="submit" class="search__button" disabled="">
+            <svg class="icon icon--search"><use xlink:href="#icon-search"></use></svg>
+        </button>
+        <input class="search__input" id="search_uid9a2bc5aec5fa564c5a5d62a657bb2810" type="text" name="q" placeholder="search for products" autocomplete="off" value="">
+    </form>
+</div>
+<div class="search__results" id="search_uid9a2bc5aec5fa564c5a5d62a657bb2810-search-results"></div>
+    <script>
+      (function (w) {
+        w.INIT.add(function() {
+          init_search_widget('#search_uid9a2bc5aec5fa564c5a5d62a657bb2810', {
+            hideQuery: true
+          });
+        }, w.init_search_widget)
+      })(window);
+    </script></div>                                                                            </div>
+                                </div>
+                            
+                        </div>
+                                                                                    <div class="header__column header__column--right ">
+                                                            <div class="header__section">
+    <div class="comparison-view" id="uid0e20def6a1e6732e010af17e5eb8106e">
+    <a href="#" class="comparison-view__button j-compare-link  is-disabled a" title="Comparison">
+        <div class="comparison-view__icon">
+            <svg class="icon icon--round-checkbox-outline"><use xlink:href="#icon-round-checkbox-outline"></use></svg>
+            <span class="comparison-view__count j-count" style="display: none;">0</span>
+        </div>
+    </a>
+    <div class="comparison-view__tooltip j-tooltip">Add items to comparison</div>
+</div>
+<script>
+  (function (w) {
+    w.INIT.add(function () {
+      var container = $('#uid0e20def6a1e6732e010af17e5eb8106e'),
+          allow = false,
+          link = container.find('.j-compare-link'),
+          count = container.find('.j-count'),
+          tooltip = container.find('.j-tooltip');
+      link.off('click').on('click', function () {
+        allow && ComparisonTable.getInstance() && ComparisonTable.getInstance().openModal();
+
+        return false;
+      });
+      ComparisonList.attachEventHandlers({
+        onChange: function () {
+          var countVal = this.count * 1;
+          allow = countVal !== 0;
+
+          if (countVal === 0) {
+            link.addClass('is-disabled');
+            tooltip.show();
+            count.hide();
+          } else {
+            link.removeClass('is-disabled');
+            tooltip.hide();
+            count.show();
+          }
+          count.html(countVal);
+        }
+      });
+      $(function() {
+        $('.comparison-view__tooltip').dropdown({
+          trigger: '.comparison-view__button',
+          visibleClass: 'is-visible',
+          hoverClass: 'is-hover'
+        });
+      })
+    }, w.ComparisonList && w.ComparisonTable)
+  })(window);
+</script></div>                                                            <div class="header__section">
+    <div class="favorites-view" id="uid264d54c9a708eb668f04b8b4a5ec6819">
+        <a href="security/index.htm" class="favorites-view__button j-favorite-link is-disabled">
+            <div class="favorites-view__icon">
+                <svg class="icon icon--heart-outline"><use xlink:href="#icon-heart-outline"></use></svg>
+                <span class="favorites-view__count j-count" style="display: none;">0</span>
+            </div>
+        </a>
+        <div class="favorites-view__tooltip">Add items to wish list</div>
+    </div>
+
+<script>
+  (function (w) {
+    w.INIT.add(function () {
+      var container = $('#uid264d54c9a708eb668f04b8b4a5ec6819'),
+          allow = false,
+          link = container.find('.j-favorite-link'),
+          count = container.find('.j-count'),
+          tooltip = container.find('.j-tooltip');
+
+      link.off('click').on('click', function (e) {
+        if ($(this).hasClass('is-disabled')) {
+          e.preventDefault();
+        }
+
+      });
+      FavoritesList.attachEventHandlers({
+        onChange: function () {
+          var countVal = this.count * 1;
+          allow = countVal !== 0;
+          if (countVal === 0) {
+            link.addClass('is-disabled');
+            tooltip.show();
+            count.hide();
+          } else {
+            link.removeClass('is-disabled');
+            tooltip.hide();
+            count.show();
+          }
+          count.html(countVal);
+        }
+      });
+      $(function() {
+        $('.favorites-view__tooltip').dropdown({
+          trigger: '.favorites-view__button',
+          visibleClass: 'is-visible',
+          hoverClass: 'is-hover'
+        });
+      })
+    }, w.FavoritesList)
+  })(window);
+</script></div>                                                            <div class="header__section">
+    <div class="basket is-empty" data-widget="mini_cart" data-skin="header" data-icon="cart-outline" data-elements="iconPlus">
+
+        <div class="basket__icon basket__icon--cart-outline j-basket-icon">
+            <svg class="icon icon--cart-outline"><use xlink:href="#icon-cart-outline"></use></svg>
+            <div class="basket__items">0</div>
+        </div>
+                    <div class="basket__contents">
+                <div class="basket__title">My order</div>
+            </div>
+        
+    </div></div>                                                    </div>
+                                    </div>
+            </div>
+        </div>
+                    <div class="header__bottom">
+                <div class="header__wrapper">
+                    <div class="header__layout header__layout--bottom">
+                                                                            <div class="header__column header__column--center ">
+                                                                    <div class="header__section header__section--catalog-menu">
+    <div class="products-menu j-products-menu">
+    <ul class="products-menu__container">
+                    <li class="products-menu__item j-submenu-item">
+                <div class="products-menu__title">
+                    <a class="products-menu__title-link" href="tovary-dlia-dozvillia/vr-okuliary/index.htm">
+                                                VR glasses                    </a>
+                </div>
+                                                        
+            </li>
+                    <li class="products-menu__item j-submenu-item">
+                <div class="products-menu__title">
+                    <a class="products-menu__title-link" href="tovary-dlia-dozvillia/index.htm">
+                                                Leisure products                    </a>
+                </div>
+                                    <div class="productsMenu-submenu __fluidGrid __smallIcons">
+        <ul class="productsMenu-submenu-w">
+        <!--
+                    --><li class="productsMenu-submenu-i ">
+                <a class="productsMenu-submenu-a" href="tovary-dlia-dozvillia/fotoaparaty/index.htm">
+                                                                        <div class="productsMenu-submenu-image">
+                                <img alt='Cameras hjhk' title='' width='50' height='50' src='../content/images/21/50x50l80nn0/65228794397535.jpg' srcset="../content/images/21/110x110l80nn0/65228794397535.jpg 2x">                            </div>
+                                                                <span class="productsMenu-submenu-t">Cameras</span>
+                </a>
+                            </li><!--
+                    --><li class="productsMenu-submenu-i ">
+                <a class="productsMenu-submenu-a" href="tovary-dlia-dozvillia/ihrovi-symuliatory/index.htm">
+                                                                        <div class="productsMenu-submenu-image">
+                                <img alt='Game simulators hjhk' title='' width='50' height='50' src='../content/images/22/50x50l80nn0/71053534535365.jpg' srcset="../content/images/22/110x110l80nn0/71053534535365.jpg 2x">                            </div>
+                                                                <span class="productsMenu-submenu-t">Game simulators</span>
+                </a>
+                            </li><!--
+                    --><li class="productsMenu-submenu-i ">
+                <a class="productsMenu-submenu-a" href="tovary-dlia-dozvillia/fotoprinter/index.htm">
+                                                                        <div class="productsMenu-submenu-image">
+                                <img alt='Photo printer hjhk' title='' width='50' height='50' src='../content/images/23/50x50l80nn0/38230119210735.jpg' srcset="../content/images/23/110x110l80nn0/38230119210735.jpg 2x">                            </div>
+                                                                <span class="productsMenu-submenu-t">Photo printer</span>
+                </a>
+                            </li><!--
+                    --><li class="productsMenu-submenu-i ">
+                <a class="productsMenu-submenu-a" href="tovary-dlia-dozvillia/nichnyky/index.htm">
+                                                                        <div class="productsMenu-submenu-image">
+                                <img alt='Nightlights hjhk' title='' width='50' height='50' src='../content/images/24/50x50l80nn0/88949472155732.jpg' srcset="../content/images/24/110x110l80nn0/88949472155732.jpg 2x">                            </div>
+                                                                <span class="productsMenu-submenu-t">Nightlights</span>
+                </a>
+                            </li><!--
+                    -->
+        </ul>
+    </div>                    
+            </li>
+                    <li class="products-menu__item j-submenu-item">
+                <div class="products-menu__title">
+                    <a class="products-menu__title-link" href="khobi-ta-sport/index.htm">
+                                                Hobbies and sports                    </a>
+                </div>
+                                                        
+            </li>
+                    <li class="products-menu__item j-submenu-item">
+                <div class="products-menu__title">
+                    <a class="products-menu__title-link" href="masazhery/index.htm">
+                                                Massagers                    </a>
+                </div>
+                                                        
+            </li>
+                    <li class="products-menu__item j-submenu-item">
+                <div class="products-menu__title">
+                    <a class="products-menu__title-link" href="turystychni-hadzhety/index.htm">
+                                                Travel gadgets                    </a>
+                </div>
+                                                        
+            </li>
+            </ul>
+</div>
+<script>
+  (function (w) {
+    w.INIT.add(function () {
+      $('.j-products-menu').productsMenu({
+        parent: $('.header__layout')
+      });
+    }, w.$)
+  })(window);
+</script></div>                                                            </div>
+                                                                    </div>
+                </div>
+            </div>
+            </div>
+</div>        <main id="main" class="main">
+                        <div class="banners-group">
+                    <section class="banners banners--wideblock banners--gaps-none">
+        <div class="banners__container">
+            <div class="banners__slider">
+                <div class="banners__slider-wrapper">
+                                            <div class="banners__slider-i">
+                            <div class="banners__item banners__item--radius-none banners__item--size-l">
+                                <div class="banner">
+    <div class="banner-image">
+        <img src="../content/images/25/1920x768e90nn0/35339608422069.jpg" alt="" class="banner-img" srcset='../content/images/25/1920x768e90nn0/35339608422069.jpg 1920w, ../content/images/25/3840x1536e90nn0/35339608422069.jpg 3840w' width="1920" height="768" sizes="100vw">
+    </div>
+                <a class="banner-a" href="tovary-dlia-dozvillia/fotoaparaty/index.htm"></a>
+    </div>                            </div>
+                        </div>
+                                    </div>
+                            </div>
+        </div>
+    </section>            </div>            <section class="promo" id="special_offers_homepage-showcase-default-1">
+        <div class="layout-wrap">
+            <div class="promo-container">
+                <div class="catalogTabs">
+                                            <nav class="catalogTabs-nav">
+                            <ul class="catalogTabs-nav-box">
+                                <!--
+                                                                                                                                                                                                                                --><li class="catalogTabs-nav-i j-special-offers-tab __active" rel="hits"><a class="catalogTabs-nav-a" href="#special_offers_homepage-showcase-default-1">Bestsellers</a></li><!--
+                                                                                                                                                            --><li class="catalogTabs-nav-i j-special-offers-tab" rel="global_action"><a class="catalogTabs-nav-a" href="#special_offers_homepage-showcase-default-1">Sale</a></li><!--
+                                                                                                                                                            --><li class="catalogTabs-nav-i j-special-offers-tab" rel="novelties"><a class="catalogTabs-nav-a" href="#special_offers_homepage-showcase-default-1">New arrivals</a></li><!--
+                                                        -->
+                            </ul>
+                        </nav>
+                    
+                    <div class="catalogTabs-content j-special-offers-content" style="display: block;">
+                        <section class="promo-section">
+    <div class="slideCarousel-screen">
+        <div class="catalog-carousel">
+            <div class="catalog-carousel__container promo-slider">
+                <ul class="catalog-carousel__wrap promo-slider-list" data-parent-class="catalog-grid">
+                    <!--
+                                            --><li class="catalog-carousel__item promo-slider-i">
+                            <div class="catalogCard j-catalog-card">
+                                <div class="catalogCard-box j-product-container" data-id="356">
+        <div class="catalogCard-main">
+            <div class="catalogCard-main-b">
+                <div class="catalogCard-view">
+                                        <a href='rozumni-linzy-dlia-mobilnykh-telefoniv/index.htm' class="catalogCard-image ">
+                        <div class="catalogCard-image-i">
+                                                                                        <img alt='test $170 VR glasses Smart Helmet Lenses for Cell Phone Mobile' title='test $170 VR glasses Smart Helmet Lenses for Cell Phone Mobile' class='catalogCard-img' width='600' height='600' src='../content/images/7/600x600l95nn0/rozumni-linzy-dlia-mobilnykh-telefoniv-69508098778404.png'>
+                                                    </div>
+                                                                                                </a>
+                                            <div class="productSticker __bookmark">
+                    <div class="productSticker-item __promo" data-tooltip="hint-uiddd2ebd8e8b6339d1f0794f5abeca4414" style="color: #eb5b38">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Sale                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __new" data-tooltip="hint-uiddf191e07151b761810a61b2e44a66196" style="color: #a8c6e8">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #2e2e2e">
+                    New                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __popular" data-tooltip="hint-uid8d30aa36467e7a76cb61bf18cb236153" style="color: #214a99">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Bestseller                </div>
+            </div>
+                    </div>            </div>
+                                    </div>
+                <div class="catalogCard-info">
+                                                            <div class="catalogCard-title">
+                        <a href='rozumni-linzy-dlia-mobilnykh-telefoniv/index.htm' title="Smart Helmet Lenses for Cell Phone Mobile">
+                            Smart Helmet Lenses for Cell Phone Mobile                        </a>
+                    </div>
+                    <div class="catalogCard-purchase  ">
+                            <div class="catalogCard-price">
+        $170    </div>                                        <div class="catalogCard-order">
+                                            <a class="btn __special j-buy-button-add" data-skin="small" data-quantity="1" id="j-buy-button-widget-356" data-gift="0" data-cartproducttype="product" href="javascript:void(0);">
+        <span class="btn-content">
+            <svg class="icon icon--basket"><use xlink:href="#icon-basket"></use></svg>
+        </span>
+    </a>                                                        </div>
+                    </div>
+                    <div class="catalogCard-availability" style="color: #69b815;">
+            In stock        </div>
+                </div>
+            </div>
+        </div>
+                                    <div class="catalogCard-extra">
+                    <div class="catalogCard-toolbar j-catalog-card-toolbar">
+                    <div class="catalogCard-toolbar-item ">
+                <button class="favorites-button j-widget-favorites-add" data-skin="catalog" data-button-size="m" data-show-button-text="1" id="uid8bf2cb0e1b4ba9498ae296ed6e5fac3a-356" title="Add item to wish list">
+        <span class="favorites-button__icon favorites-button__icon--m">
+            <svg class="icon icon--heart"><use xlink:href="#icon-heart-stroke"></use></svg>
+        </span>
+                    <div class="favorites-button__text">Add to wishlist</div>
+            </button>
+            <div id="tooltip-uid8bf2cb0e1b4ba9498ae296ed6e5fac3a" class="tooltip tooltip--left j-favourite-tooltip-unauthorized">
+            <div class="tooltip__wrapper">
+                <div class="tooltip__text text"><a href="#" class="a-pseudo" onclick="Modal.open('#sign-in'); return false;">Sign in</a> <br> to add this item to wishlist</div>
+            </div>
+        </div>
+        <script>
+          (function(w) {
+            w.INIT.add(function() {
+              $('#uid8bf2cb0e1b4ba9498ae296ed6e5fac3a-356').tooltip({
+                content: $('#tooltip-uid8bf2cb0e1b4ba9498ae296ed6e5fac3a'),
+                container: $('#tooltip-uid8bf2cb0e1b4ba9498ae296ed6e5fac3a').parents('.j-catalog-card-toolbar'),
+                trigger: 'hover',
+                placement: 'top',
+                hideOnClick: true,
+                popperOptions: {
+                  modifiers: {
+                    preventOverflow: {
+                      boundariesElement: $('#tooltip-uid8bf2cb0e1b4ba9498ae296ed6e5fac3a').parents('.j-catalog-card-toolbar')[0],
+                      priority: ['left', 'bottom'],
+                      padding: 7
+                    }
+                  }
+                }
+              });
+            }, w.$)
+          })(window);
+        </script>            </div>
+                            <div class="catalogCard-toolbar-item ">
+                <div class="comparison-button j-widget-comparison-add" data-skin="modern" data-button-size="m" data-show-button-text="1" id="comparison-product-356-367" title="Add item to the comparison list" role="button">
+        <span class="comparison-button__icon">
+            <svg class="icon icon--comparison-m">
+                <use xlink:href="#icon-comparison-m"></use>
+            </svg>
+        </span>
+                    <span class="comparison-button__text">Compare</span>
+            </div>            </div>
+            </div>
+                </div>
+                        </div>                            </div>
+                        </li><!--
+                                            --><li class="catalog-carousel__item promo-slider-i">
+                            <div class="catalogCard j-catalog-card">
+                                <div class="catalogCard-box j-product-container" data-id="334">
+        <div class="catalogCard-main">
+            <div class="catalogCard-main-b">
+                <div class="catalogCard-view">
+                                        <a href='elektrychnyi-pinoutvoriuvach/index.htm' class="catalogCard-image ">
+                        <div class="catalogCard-image-i">
+                                                            <div class="catalogCard-image-bg" style="background-image:url(../content/images/35/640x640l95nn0/elektrychnyi-pinoutvoriuvach-16304394300252.png);"></div>
+                                                                                        <img alt='test $19  Electric foamer' title='test $19  Electric foamer' class='catalogCard-img' width='600' height='600' src='../content/images/35/600x600l95nn0/elektrychnyi-pinoutvoriuvach-36799105251206.png'>
+                                                    </div>
+                                                                                                </a>
+                                            <div class="productSticker __bookmark">
+                    <div class="productSticker-item __promo" data-tooltip="hint-uid3f9ed474c1a113f3a3ed119f2c75c71e" style="color: #eb5b38">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Sale                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __new" data-tooltip="hint-uidf5ecbdc974211db1ff4b324f4499a840" style="color: #a8c6e8">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #2e2e2e">
+                    New                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __popular" data-tooltip="hint-uid3fd02b9287656dde6cfb042da441798c" style="color: #214a99">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Bestseller                </div>
+            </div>
+                    </div>            </div>
+                                    </div>
+                <div class="catalogCard-info">
+                                                            <div class="catalogCard-title">
+                        <a href='elektrychnyi-pinoutvoriuvach/index.htm' title="Electric foamer">
+                            Electric foamer                        </a>
+                    </div>
+                    <div class="catalogCard-purchase  ">
+                            <div class="catalogCard-price">
+        $19    </div>                                        <div class="catalogCard-order">
+                                            <a class="btn __special j-buy-button-add" data-skin="small" data-quantity="1" id="j-buy-button-widget-334" data-gift="0" data-cartproducttype="product" href="javascript:void(0);">
+        <span class="btn-content">
+            <svg class="icon icon--basket"><use xlink:href="#icon-basket"></use></svg>
+        </span>
+    </a>                                                        </div>
+                    </div>
+                    <div class="catalogCard-availability" style="color: #69b815;">
+            In stock        </div>
+                </div>
+            </div>
+        </div>
+                                    <div class="catalogCard-extra">
+                    <div class="catalogCard-toolbar j-catalog-card-toolbar">
+                    <div class="catalogCard-toolbar-item ">
+                <button class="favorites-button j-widget-favorites-add" data-skin="catalog" data-button-size="m" data-show-button-text="1" id="uid3965289c472dc6d6a5e19005a32d85e8-334" title="Add item to wish list">
+        <span class="favorites-button__icon favorites-button__icon--m">
+            <svg class="icon icon--heart"><use xlink:href="#icon-heart-stroke"></use></svg>
+        </span>
+                    <div class="favorites-button__text">Add to wishlist</div>
+            </button>
+            <div id="tooltip-uid3965289c472dc6d6a5e19005a32d85e8" class="tooltip tooltip--left j-favourite-tooltip-unauthorized">
+            <div class="tooltip__wrapper">
+                <div class="tooltip__text text"><a href="#" class="a-pseudo" onclick="Modal.open('#sign-in'); return false;">Sign in</a> <br> to add this item to wishlist</div>
+            </div>
+        </div>
+        <script>
+          (function(w) {
+            w.INIT.add(function() {
+              $('#uid3965289c472dc6d6a5e19005a32d85e8-334').tooltip({
+                content: $('#tooltip-uid3965289c472dc6d6a5e19005a32d85e8'),
+                container: $('#tooltip-uid3965289c472dc6d6a5e19005a32d85e8').parents('.j-catalog-card-toolbar'),
+                trigger: 'hover',
+                placement: 'top',
+                hideOnClick: true,
+                popperOptions: {
+                  modifiers: {
+                    preventOverflow: {
+                      boundariesElement: $('#tooltip-uid3965289c472dc6d6a5e19005a32d85e8').parents('.j-catalog-card-toolbar')[0],
+                      priority: ['left', 'bottom'],
+                      padding: 7
+                    }
+                  }
+                }
+              });
+            }, w.$)
+          })(window);
+        </script>            </div>
+                            <div class="catalogCard-toolbar-item ">
+                <div class="comparison-button j-widget-comparison-add" data-skin="modern" data-button-size="m" data-show-button-text="1" id="comparison-product-334-367" title="Add item to the comparison list" role="button">
+        <span class="comparison-button__icon">
+            <svg class="icon icon--comparison-m">
+                <use xlink:href="#icon-comparison-m"></use>
+            </svg>
+        </span>
+                    <span class="comparison-button__text">Compare</span>
+            </div>            </div>
+            </div>
+                </div>
+                        </div>                            </div>
+                        </li><!--
+                                            --><li class="catalog-carousel__item promo-slider-i">
+                            <div class="catalogCard j-catalog-card">
+                                <div class="catalogCard-box j-product-container" data-id="342">
+        <div class="catalogCard-main">
+            <div class="catalogCard-main-b">
+                <div class="catalogCard-view">
+                                        <a href='ihrova-konsol/index.htm' class="catalogCard-image ">
+                        <div class="catalogCard-image-i">
+                                                            <div class="catalogCard-image-bg" style="background-image:url(../content/images/43/640x640l95nn0/ihrova-konsol-93353292131610.png);"></div>
+                                                                                        <img alt='test $138 Leisure products Ігрова консоль' title='test $138 Leisure products Ігрова консоль' class='catalogCard-img' width='600' height='600' src='../content/images/43/600x600l95nn0/ihrova-konsol-91091190265043.png'>
+                                                    </div>
+                                                                                                </a>
+                                            <div class="productSticker __bookmark">
+                    <div class="productSticker-item __promo" data-tooltip="hint-uide54ca354213adc53120d479757809949" style="color: #eb5b38">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Sale                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __new" data-tooltip="hint-uidc613d8103b5c5f98a29639befcba33ef" style="color: #a8c6e8">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #2e2e2e">
+                    New                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __popular" data-tooltip="hint-uid2f4f2fcb94842591ab5b93a0431e611f" style="color: #214a99">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Bestseller                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __discount" data-tooltip="hint-uid8f8f616c4e8943392484876957b84dee" style="color: #eb5b38">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    −9%                </div>
+            </div>
+                    </div>            </div>
+                                    </div>
+                <div class="catalogCard-info">
+                                                            <div class="catalogCard-title">
+                        <a href='ihrova-konsol/index.htm' title="Ігрова консоль">
+                            Ігрова консоль                        </a>
+                    </div>
+                    <div class="catalogCard-purchase  ">
+                            <div class="catalogCard-oldPrice">
+            $151        </div>
+        <div class="catalogCard-price">
+        $138    </div>                                        <div class="catalogCard-order">
+                                            <a class="btn __special j-buy-button-add" data-skin="small" data-quantity="1" id="j-buy-button-widget-342" data-gift="0" data-cartproducttype="product" href="javascript:void(0);">
+        <span class="btn-content">
+            <svg class="icon icon--basket"><use xlink:href="#icon-basket"></use></svg>
+        </span>
+    </a>                                                        </div>
+                    </div>
+                    <div class="catalogCard-availability" style="color: #69b815;">
+            In stock        </div>
+                </div>
+            </div>
+        </div>
+                                    <div class="catalogCard-extra">
+                    <div class="catalogCard-toolbar j-catalog-card-toolbar">
+                    <div class="catalogCard-toolbar-item ">
+                <button class="favorites-button j-widget-favorites-add" data-skin="catalog" data-button-size="m" data-show-button-text="1" id="uid688b9a7792faf51ad357e43f0c3822da-342" title="Add item to wish list">
+        <span class="favorites-button__icon favorites-button__icon--m">
+            <svg class="icon icon--heart"><use xlink:href="#icon-heart-stroke"></use></svg>
+        </span>
+                    <div class="favorites-button__text">Add to wishlist</div>
+            </button>
+            <div id="tooltip-uid688b9a7792faf51ad357e43f0c3822da" class="tooltip tooltip--left j-favourite-tooltip-unauthorized">
+            <div class="tooltip__wrapper">
+                <div class="tooltip__text text"><a href="#" class="a-pseudo" onclick="Modal.open('#sign-in'); return false;">Sign in</a> <br> to add this item to wishlist</div>
+            </div>
+        </div>
+        <script>
+          (function(w) {
+            w.INIT.add(function() {
+              $('#uid688b9a7792faf51ad357e43f0c3822da-342').tooltip({
+                content: $('#tooltip-uid688b9a7792faf51ad357e43f0c3822da'),
+                container: $('#tooltip-uid688b9a7792faf51ad357e43f0c3822da').parents('.j-catalog-card-toolbar'),
+                trigger: 'hover',
+                placement: 'top',
+                hideOnClick: true,
+                popperOptions: {
+                  modifiers: {
+                    preventOverflow: {
+                      boundariesElement: $('#tooltip-uid688b9a7792faf51ad357e43f0c3822da').parents('.j-catalog-card-toolbar')[0],
+                      priority: ['left', 'bottom'],
+                      padding: 7
+                    }
+                  }
+                }
+              });
+            }, w.$)
+          })(window);
+        </script>            </div>
+                            <div class="catalogCard-toolbar-item ">
+                <div class="comparison-button j-widget-comparison-add" data-skin="modern" data-button-size="m" data-show-button-text="1" id="comparison-product-342-367" title="Add item to the comparison list" role="button">
+        <span class="comparison-button__icon">
+            <svg class="icon icon--comparison-m">
+                <use xlink:href="#icon-comparison-m"></use>
+            </svg>
+        </span>
+                    <span class="comparison-button__text">Compare</span>
+            </div>            </div>
+            </div>
+                </div>
+                        </div>                            </div>
+                        </li><!--
+                                            --><li class="catalog-carousel__item promo-slider-i">
+                            <div class="catalogCard j-catalog-card">
+                                <div class="catalogCard-box j-product-container" data-id="354">
+        <div class="catalogCard-main">
+            <div class="catalogCard-main-b">
+                <div class="catalogCard-view">
+                                        <a href='tovary-dlia-dozvillia/vr-okuliary/354/index.htm' class="catalogCard-image ">
+                        <div class="catalogCard-image-i">
+                                                            <div class="catalogCard-image-bg" style="background-image:url(../content/images/5/640x640l95nn0/51683195431526.png);"></div>
+                                                                                        <img alt='test $283 VR glasses Shinecon Viar 3D' title='test $283 VR glasses Shinecon Viar 3D' class='catalogCard-img' width='600' height='600' src='../content/images/5/600x600l95nn0/80826033901511.png'>
+                                                    </div>
+                                                                                                </a>
+                                            <div class="productSticker __bookmark">
+                    <div class="productSticker-item __promo" data-tooltip="hint-uid2829f869ccc5d65c192e380b88bd616c" style="color: #eb5b38">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Sale                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __new" data-tooltip="hint-uidd8b372f564aa9e3913ed1c0c35ab8678" style="color: #a8c6e8">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #2e2e2e">
+                    New                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __popular" data-tooltip="hint-uidd61a8c70bf73f0dfff207a2212b55482" style="color: #214a99">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Bestseller                </div>
+            </div>
+                    </div>            </div>
+                                    </div>
+                <div class="catalogCard-info">
+                                                            <div class="catalogCard-title">
+                        <a href='tovary-dlia-dozvillia/vr-okuliary/354/index.htm' title="Shinecon Viar 3D">
+                            Shinecon Viar 3D                        </a>
+                    </div>
+                    <div class="catalogCard-purchase  ">
+                            <div class="catalogCard-price">
+        $283    </div>                                        <div class="catalogCard-order">
+                                            <a class="btn __special j-buy-button-add" data-skin="small" data-quantity="1" id="j-buy-button-widget-354" data-gift="0" data-cartproducttype="product" href="javascript:void(0);">
+        <span class="btn-content">
+            <svg class="icon icon--basket"><use xlink:href="#icon-basket"></use></svg>
+        </span>
+    </a>                                                        </div>
+                    </div>
+                    <div class="catalogCard-availability" style="color: #69b815;">
+            In stock        </div>
+                </div>
+            </div>
+        </div>
+                                    <div class="catalogCard-extra">
+                    <div class="catalogCard-toolbar j-catalog-card-toolbar">
+                    <div class="catalogCard-toolbar-item ">
+                <button class="favorites-button j-widget-favorites-add" data-skin="catalog" data-button-size="m" data-show-button-text="1" id="uid10d444010c1bb2dc42da6b94fd8de1a2-354" title="Add item to wish list">
+        <span class="favorites-button__icon favorites-button__icon--m">
+            <svg class="icon icon--heart"><use xlink:href="#icon-heart-stroke"></use></svg>
+        </span>
+                    <div class="favorites-button__text">Add to wishlist</div>
+            </button>
+            <div id="tooltip-uid10d444010c1bb2dc42da6b94fd8de1a2" class="tooltip tooltip--left j-favourite-tooltip-unauthorized">
+            <div class="tooltip__wrapper">
+                <div class="tooltip__text text"><a href="#" class="a-pseudo" onclick="Modal.open('#sign-in'); return false;">Sign in</a> <br> to add this item to wishlist</div>
+            </div>
+        </div>
+        <script>
+          (function(w) {
+            w.INIT.add(function() {
+              $('#uid10d444010c1bb2dc42da6b94fd8de1a2-354').tooltip({
+                content: $('#tooltip-uid10d444010c1bb2dc42da6b94fd8de1a2'),
+                container: $('#tooltip-uid10d444010c1bb2dc42da6b94fd8de1a2').parents('.j-catalog-card-toolbar'),
+                trigger: 'hover',
+                placement: 'top',
+                hideOnClick: true,
+                popperOptions: {
+                  modifiers: {
+                    preventOverflow: {
+                      boundariesElement: $('#tooltip-uid10d444010c1bb2dc42da6b94fd8de1a2').parents('.j-catalog-card-toolbar')[0],
+                      priority: ['left', 'bottom'],
+                      padding: 7
+                    }
+                  }
+                }
+              });
+            }, w.$)
+          })(window);
+        </script>            </div>
+                            <div class="catalogCard-toolbar-item ">
+                <div class="comparison-button j-widget-comparison-add" data-skin="modern" data-button-size="m" data-show-button-text="1" id="comparison-product-354-367" title="Add item to the comparison list" role="button">
+        <span class="comparison-button__icon">
+            <svg class="icon icon--comparison-m">
+                <use xlink:href="#icon-comparison-m"></use>
+            </svg>
+        </span>
+                    <span class="comparison-button__text">Compare</span>
+            </div>            </div>
+            </div>
+                </div>
+                        </div>                            </div>
+                        </li><!--
+                                            --><li class="catalog-carousel__item promo-slider-i">
+                            <div class="catalogCard j-catalog-card">
+                                <div class="catalogCard-box j-product-container" data-id="352">
+        <div class="catalogCard-main">
+            <div class="catalogCard-main-b">
+                <div class="catalogCard-view">
+                                        <a href='okuliary-virtualnoi-realnosti/index.htm' class="catalogCard-image ">
+                        <div class="catalogCard-image-i">
+                                                            <div class="catalogCard-image-bg" style="background-image:url(../content/images/3/800x800l95nn0/okuliary-virtualnoi-realnosti-45405754792918.png);"></div>
+                                                                                        <img alt='test $300 VR glasses Virtual reality glasses' title='test $300 VR glasses Virtual reality glasses' class='catalogCard-img' width='600' height='600' src='../content/images/3/600x600l95nn0/okuliary-virtualnoi-realnosti-51153688263846.png'>
+                                                    </div>
+                                                                                                </a>
+                                            <div class="productSticker __bookmark">
+                    <div class="productSticker-item __promo" data-tooltip="hint-uid55fa62e8e6361bb4ad7f286d7685846c" style="color: #eb5b38">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Sale                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __new" data-tooltip="hint-uid30c5167fb96d1dbecf2f48aa31abaaa1" style="color: #a8c6e8">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #2e2e2e">
+                    New                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __popular" data-tooltip="hint-uid87d8bddecc7a1e8c41a971f870eaa9e5" style="color: #214a99">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Bestseller                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __discount" data-tooltip="hint-uid73d618f2d20605f44d07dc9e4c2c73c1" style="color: #eb5b38">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    −1%                </div>
+            </div>
+                    </div>            </div>
+                                    </div>
+                <div class="catalogCard-info">
+                                                            <div class="catalogCard-title">
+                        <a href='okuliary-virtualnoi-realnosti/index.htm' title="Virtual reality glasses">
+                            Virtual reality glasses                        </a>
+                    </div>
+                    <div class="catalogCard-purchase  ">
+                            <div class="catalogCard-oldPrice">
+            $302        </div>
+        <div class="catalogCard-price">
+        $300    </div>                                        <div class="catalogCard-order">
+                                            <a class="btn __special j-buy-button-add" data-skin="small" data-quantity="1" id="j-buy-button-widget-352" data-gift="0" data-cartproducttype="product" href="javascript:void(0);">
+        <span class="btn-content">
+            <svg class="icon icon--basket"><use xlink:href="#icon-basket"></use></svg>
+        </span>
+    </a>                                                        </div>
+                    </div>
+                    <div class="catalogCard-availability" style="color: #69b815;">
+            In stock        </div>
+                </div>
+            </div>
+        </div>
+                                    <div class="catalogCard-extra">
+                    <div class="catalogCard-toolbar j-catalog-card-toolbar">
+                    <div class="catalogCard-toolbar-item ">
+                <button class="favorites-button j-widget-favorites-add" data-skin="catalog" data-button-size="m" data-show-button-text="1" id="uid7e50baf7ca5854fe7fc0fc5645207d0b-352" title="Add item to wish list">
+        <span class="favorites-button__icon favorites-button__icon--m">
+            <svg class="icon icon--heart"><use xlink:href="#icon-heart-stroke"></use></svg>
+        </span>
+                    <div class="favorites-button__text">Add to wishlist</div>
+            </button>
+            <div id="tooltip-uid7e50baf7ca5854fe7fc0fc5645207d0b" class="tooltip tooltip--left j-favourite-tooltip-unauthorized">
+            <div class="tooltip__wrapper">
+                <div class="tooltip__text text"><a href="#" class="a-pseudo" onclick="Modal.open('#sign-in'); return false;">Sign in</a> <br> to add this item to wishlist</div>
+            </div>
+        </div>
+        <script>
+          (function(w) {
+            w.INIT.add(function() {
+              $('#uid7e50baf7ca5854fe7fc0fc5645207d0b-352').tooltip({
+                content: $('#tooltip-uid7e50baf7ca5854fe7fc0fc5645207d0b'),
+                container: $('#tooltip-uid7e50baf7ca5854fe7fc0fc5645207d0b').parents('.j-catalog-card-toolbar'),
+                trigger: 'hover',
+                placement: 'top',
+                hideOnClick: true,
+                popperOptions: {
+                  modifiers: {
+                    preventOverflow: {
+                      boundariesElement: $('#tooltip-uid7e50baf7ca5854fe7fc0fc5645207d0b').parents('.j-catalog-card-toolbar')[0],
+                      priority: ['left', 'bottom'],
+                      padding: 7
+                    }
+                  }
+                }
+              });
+            }, w.$)
+          })(window);
+        </script>            </div>
+                            <div class="catalogCard-toolbar-item ">
+                <div class="comparison-button j-widget-comparison-add" data-skin="modern" data-button-size="m" data-show-button-text="1" id="comparison-product-352-367" title="Add item to the comparison list" role="button">
+        <span class="comparison-button__icon">
+            <svg class="icon icon--comparison-m">
+                <use xlink:href="#icon-comparison-m"></use>
+            </svg>
+        </span>
+                    <span class="comparison-button__text">Compare</span>
+            </div>            </div>
+            </div>
+                </div>
+                        </div>                            </div>
+                        </li><!--
+                                            --><li class="catalog-carousel__item promo-slider-i">
+                            <div class="catalogCard j-catalog-card">
+                                <div class="catalogCard-box j-product-container" data-id="357">
+        <div class="catalogCard-main">
+            <div class="catalogCard-main-b">
+                <div class="catalogCard-view">
+                                        <a href='vr-okuliary-z-harnituroiu-bluetooth/index.htm' class="catalogCard-image ">
+                        <div class="catalogCard-image-i">
+                                                            <div class="catalogCard-image-bg" style="background-image:url(../content/images/8/640x640l95nn0/vr-okuliary-z-harnituroiu-bluetooth-69875333959900.png);"></div>
+                                                                                        <img alt='test $242 VR glasses VR Glasses with  Headset Bluetooth' title='test $242 VR glasses VR Glasses with  Headset Bluetooth' class='catalogCard-img' width='600' height='600' src='../content/images/8/600x600l95nn0/vr-okuliary-z-harnituroiu-bluetooth-47658628402864.png'>
+                                                    </div>
+                                                                                                </a>
+                                            <div class="productSticker __bookmark">
+                    <div class="productSticker-item __promo" data-tooltip="hint-uid598ba6cd97098dc717469d06bf76393b" style="color: #eb5b38">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Sale                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __new" data-tooltip="hint-uidb20d5da46ca84b744355d8217a45f945" style="color: #a8c6e8">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #2e2e2e">
+                    New                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __popular" data-tooltip="hint-uid83e2a5d710bd98ec230ef0dacf372878" style="color: #214a99">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Bestseller                </div>
+            </div>
+                    </div>            </div>
+                                    </div>
+                <div class="catalogCard-info">
+                                                            <div class="catalogCard-title">
+                        <a href='vr-okuliary-z-harnituroiu-bluetooth/index.htm' title="VR Glasses with  Headset Bluetooth">
+                            VR Glasses with  Headset Bluetooth                        </a>
+                    </div>
+                    <div class="catalogCard-purchase  ">
+                            <div class="catalogCard-price">
+        $242    </div>                                        <div class="catalogCard-order">
+                                            <a class="btn __special j-buy-button-add" data-skin="small" data-quantity="1" id="j-buy-button-widget-357" data-gift="0" data-cartproducttype="product" href="javascript:void(0);">
+        <span class="btn-content">
+            <svg class="icon icon--basket"><use xlink:href="#icon-basket"></use></svg>
+        </span>
+    </a>                                                        </div>
+                    </div>
+                    <div class="catalogCard-availability" style="color: #69b815;">
+            In stock        </div>
+                </div>
+            </div>
+        </div>
+                                    <div class="catalogCard-extra">
+                    <div class="catalogCard-toolbar j-catalog-card-toolbar">
+                    <div class="catalogCard-toolbar-item ">
+                <button class="favorites-button j-widget-favorites-add" data-skin="catalog" data-button-size="m" data-show-button-text="1" id="uiddca4515f50e644a7c19bdb93fe13095a-357" title="Add item to wish list">
+        <span class="favorites-button__icon favorites-button__icon--m">
+            <svg class="icon icon--heart"><use xlink:href="#icon-heart-stroke"></use></svg>
+        </span>
+                    <div class="favorites-button__text">Add to wishlist</div>
+            </button>
+            <div id="tooltip-uiddca4515f50e644a7c19bdb93fe13095a" class="tooltip tooltip--left j-favourite-tooltip-unauthorized">
+            <div class="tooltip__wrapper">
+                <div class="tooltip__text text"><a href="#" class="a-pseudo" onclick="Modal.open('#sign-in'); return false;">Sign in</a> <br> to add this item to wishlist</div>
+            </div>
+        </div>
+        <script>
+          (function(w) {
+            w.INIT.add(function() {
+              $('#uiddca4515f50e644a7c19bdb93fe13095a-357').tooltip({
+                content: $('#tooltip-uiddca4515f50e644a7c19bdb93fe13095a'),
+                container: $('#tooltip-uiddca4515f50e644a7c19bdb93fe13095a').parents('.j-catalog-card-toolbar'),
+                trigger: 'hover',
+                placement: 'top',
+                hideOnClick: true,
+                popperOptions: {
+                  modifiers: {
+                    preventOverflow: {
+                      boundariesElement: $('#tooltip-uiddca4515f50e644a7c19bdb93fe13095a').parents('.j-catalog-card-toolbar')[0],
+                      priority: ['left', 'bottom'],
+                      padding: 7
+                    }
+                  }
+                }
+              });
+            }, w.$)
+          })(window);
+        </script>            </div>
+                            <div class="catalogCard-toolbar-item ">
+                <div class="comparison-button j-widget-comparison-add" data-skin="modern" data-button-size="m" data-show-button-text="1" id="comparison-product-357-367" title="Add item to the comparison list" role="button">
+        <span class="comparison-button__icon">
+            <svg class="icon icon--comparison-m">
+                <use xlink:href="#icon-comparison-m"></use>
+            </svg>
+        </span>
+                    <span class="comparison-button__text">Compare</span>
+            </div>            </div>
+            </div>
+                </div>
+                        </div>                            </div>
+                        </li><!--
+                                            --><li class="catalog-carousel__item promo-slider-i">
+                            <div class="catalogCard j-catalog-card">
+                                <div class="catalogCard-box j-product-container" data-id="339">
+        <div class="catalogCard-main">
+            <div class="catalogCard-main-b">
+                <div class="catalogCard-view">
+                                        <a href='fotoaparat-instax-mini-12/index.htm' class="catalogCard-image ">
+                        <div class="catalogCard-image-i">
+                                                            <div class="catalogCard-image-bg" style="background-image:url(../content/images/40/640x640l95nn0/fotoaparat-instax-mini-12-71663264034025.png);"></div>
+                                                                                        <img alt='test $289 Leisure products Instax Mini 12 Camera' title='test $289 Leisure products Instax Mini 12 Camera' class='catalogCard-img' width='600' height='600' src='../content/images/40/600x600l95nn0/fotoaparat-instax-mini-12-41714905040963.png'>
+                                                    </div>
+                                                                                                </a>
+                                            <div class="productSticker __bookmark">
+                    <div class="productSticker-item __promo" data-tooltip="hint-uided5f326bb91eb563d016e7accd466c04" style="color: #eb5b38">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Sale                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __new" data-tooltip="hint-uidf23a6df04a88df2c83af250ad56abdeb" style="color: #a8c6e8">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #2e2e2e">
+                    New                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __popular" data-tooltip="hint-uidd3cd13a5d0c0c268f3e14c7bcc730a35" style="color: #214a99">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Bestseller                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __discount" data-tooltip="hint-uid84bfff1cc170cbbaa92d7fd487e8b070" style="color: #eb5b38">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    −4%                </div>
+            </div>
+                    </div>            </div>
+                                    </div>
+                <div class="catalogCard-info">
+                                                            <div class="catalogCard-title">
+                        <a href='fotoaparat-instax-mini-12/index.htm' title="Instax Mini 12 Camera">
+                            Instax Mini 12 Camera                        </a>
+                    </div>
+                    <div class="catalogCard-purchase  ">
+                            <div class="catalogCard-oldPrice">
+            $302        </div>
+        <div class="catalogCard-price">
+        $289    </div>                                        <div class="catalogCard-order">
+                                            <a class="btn __special j-buy-button-add" data-skin="small" data-quantity="1" id="j-buy-button-widget-339" data-gift="0" data-cartproducttype="product" href="javascript:void(0);">
+        <span class="btn-content">
+            <svg class="icon icon--basket"><use xlink:href="#icon-basket"></use></svg>
+        </span>
+    </a>                                                        </div>
+                    </div>
+                    <div class="catalogCard-availability" style="color: #69b815;">
+            In stock        </div>
+                </div>
+            </div>
+        </div>
+                                    <div class="catalogCard-extra">
+                    <div class="catalogCard-toolbar j-catalog-card-toolbar">
+                    <div class="catalogCard-toolbar-item ">
+                <button class="favorites-button j-widget-favorites-add" data-skin="catalog" data-button-size="m" data-show-button-text="1" id="uidb46ad211f303df1e5fe4f5dd1cc78003-339" title="Add item to wish list">
+        <span class="favorites-button__icon favorites-button__icon--m">
+            <svg class="icon icon--heart"><use xlink:href="#icon-heart-stroke"></use></svg>
+        </span>
+                    <div class="favorites-button__text">Add to wishlist</div>
+            </button>
+            <div id="tooltip-uidb46ad211f303df1e5fe4f5dd1cc78003" class="tooltip tooltip--left j-favourite-tooltip-unauthorized">
+            <div class="tooltip__wrapper">
+                <div class="tooltip__text text"><a href="#" class="a-pseudo" onclick="Modal.open('#sign-in'); return false;">Sign in</a> <br> to add this item to wishlist</div>
+            </div>
+        </div>
+        <script>
+          (function(w) {
+            w.INIT.add(function() {
+              $('#uidb46ad211f303df1e5fe4f5dd1cc78003-339').tooltip({
+                content: $('#tooltip-uidb46ad211f303df1e5fe4f5dd1cc78003'),
+                container: $('#tooltip-uidb46ad211f303df1e5fe4f5dd1cc78003').parents('.j-catalog-card-toolbar'),
+                trigger: 'hover',
+                placement: 'top',
+                hideOnClick: true,
+                popperOptions: {
+                  modifiers: {
+                    preventOverflow: {
+                      boundariesElement: $('#tooltip-uidb46ad211f303df1e5fe4f5dd1cc78003').parents('.j-catalog-card-toolbar')[0],
+                      priority: ['left', 'bottom'],
+                      padding: 7
+                    }
+                  }
+                }
+              });
+            }, w.$)
+          })(window);
+        </script>            </div>
+                            <div class="catalogCard-toolbar-item ">
+                <div class="comparison-button j-widget-comparison-add" data-skin="modern" data-button-size="m" data-show-button-text="1" id="comparison-product-339-367" title="Add item to the comparison list" role="button">
+        <span class="comparison-button__icon">
+            <svg class="icon icon--comparison-m">
+                <use xlink:href="#icon-comparison-m"></use>
+            </svg>
+        </span>
+                    <span class="comparison-button__text">Compare</span>
+            </div>            </div>
+            </div>
+                </div>
+                        </div>                            </div>
+                        </li><!--
+                                            --><li class="catalog-carousel__item promo-slider-i">
+                            <div class="catalogCard j-catalog-card">
+                                <div class="catalogCard-box j-product-container" data-id="355">
+        <div class="catalogCard-main">
+            <div class="catalogCard-main-b">
+                <div class="catalogCard-view">
+                                        <a href='rozumna-harnitura-dlia-pryvatnoho-kinoteatru/index.htm' class="catalogCard-image ">
+                        <div class="catalogCard-image-i">
+                                                                                        <img alt='test $577 VR glasses Smart Headset Private Cinema Glasses' title='test $577 VR glasses Smart Headset Private Cinema Glasses' class='catalogCard-img' width='600' height='600' src='../content/images/6/600x600l95nn0/rozumna-harnitura-dlia-pryvatnoho-kinoteatru-23932506912314.png'>
+                                                    </div>
+                                                                                                </a>
+                                            <div class="productSticker __bookmark">
+                    <div class="productSticker-item __promo" data-tooltip="hint-uid9ac53d5bb6a8be588b694e55b1294f1c" style="color: #eb5b38">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Sale                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __new" data-tooltip="hint-uidf32d096cf1c334a4a2b18592458c3034" style="color: #a8c6e8">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #2e2e2e">
+                    New                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __popular" data-tooltip="hint-uidf96b6fa8c934ad7d4c131cb81a5aacd0" style="color: #214a99">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    Bestseller                </div>
+            </div>
+                    </div>                    <div class="productSticker-item __countdown" data-tooltip="hint-uida5a3024e962a87a22a35ea7407f08e7b" style="color: #eb5b38">
+            <div class="productSticker-container">
+                <div class="productSticker-content" style="color: #ffffff">
+                    423 days left                </div>
+            </div>
+                    </div>            </div>
+                                    </div>
+                <div class="catalogCard-info">
+                                                            <div class="catalogCard-title">
+                        <a href='rozumna-harnitura-dlia-pryvatnoho-kinoteatru/index.htm' title="Smart Headset Private Cinema Glasses">
+                            Smart Headset Private Cinema Glasses                        </a>
+                    </div>
+                    <div class="catalogCard-purchase  ">
+                            <div class="catalogCard-price">
+        $577    </div>                                        <div class="catalogCard-order">
+                                            <a class="btn __special j-buy-button-add" data-skin="small" data-quantity="1" id="j-buy-button-widget-355" data-gift="0" data-cartproducttype="product" href="javascript:void(0);">
+        <span class="btn-content">
+            <svg class="icon icon--basket"><use xlink:href="#icon-basket"></use></svg>
+        </span>
+    </a>                                                        </div>
+                    </div>
+                    <div class="catalogCard-availability" style="color: #69b815;">
+            In stock        </div>
+                </div>
+            </div>
+        </div>
+                                    <div class="catalogCard-extra">
+                    <div class="catalogCard-toolbar j-catalog-card-toolbar">
+                    <div class="catalogCard-toolbar-item ">
+                <button class="favorites-button j-widget-favorites-add" data-skin="catalog" data-button-size="m" data-show-button-text="1" id="uida5aee8b627ff70fb1572392e7c6f9696-355" title="Add item to wish list">
+        <span class="favorites-button__icon favorites-button__icon--m">
+            <svg class="icon icon--heart"><use xlink:href="#icon-heart-stroke"></use></svg>
+        </span>
+                    <div class="favorites-button__text">Add to wishlist</div>
+            </button>
+            <div id="tooltip-uida5aee8b627ff70fb1572392e7c6f9696" class="tooltip tooltip--left j-favourite-tooltip-unauthorized">
+            <div class="tooltip__wrapper">
+                <div class="tooltip__text text"><a href="#" class="a-pseudo" onclick="Modal.open('#sign-in'); return false;">Sign in</a> <br> to add this item to wishlist</div>
+            </div>
+        </div>
+        <script>
+          (function(w) {
+            w.INIT.add(function() {
+              $('#uida5aee8b627ff70fb1572392e7c6f9696-355').tooltip({
+                content: $('#tooltip-uida5aee8b627ff70fb1572392e7c6f9696'),
+                container: $('#tooltip-uida5aee8b627ff70fb1572392e7c6f9696').parents('.j-catalog-card-toolbar'),
+                trigger: 'hover',
+                placement: 'top',
+                hideOnClick: true,
+                popperOptions: {
+                  modifiers: {
+                    preventOverflow: {
+                      boundariesElement: $('#tooltip-uida5aee8b627ff70fb1572392e7c6f9696').parents('.j-catalog-card-toolbar')[0],
+                      priority: ['left', 'bottom'],
+                      padding: 7
+                    }
+                  }
+                }
+              });
+            }, w.$)
+          })(window);
+        </script>            </div>
+                            <div class="catalogCard-toolbar-item ">
+                <div class="comparison-button j-widget-comparison-add" data-skin="modern" data-button-size="m" data-show-button-text="1" id="comparison-product-355-367" title="Add item to the comparison list" role="button">
+        <span class="comparison-button__icon">
+            <svg class="icon icon--comparison-m">
+                <use xlink:href="#icon-comparison-m"></use>
+            </svg>
+        </span>
+                    <span class="comparison-button__text">Compare</span>
+            </div>            </div>
+            </div>
+                </div>
+                        </div>                            </div>
+                        </li><!--
+                                        -->
+                </ul>
+            </div>
+            <a class="slideCarousel-nav-btn __slideLeft" href="#"></a>
+            <a class="slideCarousel-nav-btn __slideRight" href="#"></a>
+        </div>
+    </div>
+</section>                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+            <script>
+          (function (w) {
+            w.INIT.add(function () {
+              SpecialOffers.init({"name":"special_offers","token":"homepage-showcase-default-1","activeBlock":"hits","activeClass":"__active","settingsStorage":{"type":"cache","keyPrefix":"pages\/1"}});
+            }, w.SpecialOffers)
+          })(window);
+        </script>            <div class="banners-group">
+                    <section class="banners banners--3x banners--gaps-s">
+        <div class="banners__wrapper wrapper">
+            <div class="banners__container">
+                <div class="banners__grid">
+                                            <div class="banners__col banners__col--1of3">
+                            <div class="banners__item banners__item--radius-none banners__item--size-m">
+                                <div class="banner">
+    <div class="banner-image">
+        <img src="../content/images/47/480x480e90nn0/38362702411314.jpg" alt="" class="banner-img" srcset='../content/images/47/480x480e90nn0/38362702411314.jpg 480w, ../content/images/47/960x960e90nn0/38362702411314.jpg 960w' width="480" height="480" sizes="(max-width: 1024px) 340px, (min-width: 1440px) 480px, 33vw">
+    </div>
+                <a class="banner-a" href="tovary-dlia-dozvillia/vr-okuliary/index.htm"></a>
+    </div>                            </div>
+                        </div>
+                                            <div class="banners__col banners__col--1of3">
+                            <div class="banners__item banners__item--radius-none banners__item--size-m">
+                                <div class="banner">
+    <div class="banner-image">
+        <img src="../content/images/6/480x480e90nn0/51277426187046.jpg" alt="" class="banner-img" srcset='../content/images/6/480x480e90nn0/51277426187046.jpg 480w, ../content/images/6/960x960e90nn0/51277426187046.jpg 960w' width="480" height="480" sizes="(max-width: 1024px) 340px, (min-width: 1440px) 480px, 33vw">
+    </div>
+                <a class="banner-a" href="tovary-dlia-dozvillia/index.htm"></a>
+    </div>                            </div>
+                        </div>
+                                            <div class="banners__col banners__col--1of3">
+                            <div class="banners__item banners__item--radius-none banners__item--size-m">
+                                <div class="banner">
+    <div class="banner-image">
+        <img src="../content/images/48/480x480e90nn0/14035427908293.jpg" alt="" class="banner-img" srcset='../content/images/48/480x480e90nn0/14035427908293.jpg 480w, ../content/images/48/960x960e90nn0/14035427908293.jpg 960w' width="480" height="480" sizes="(max-width: 1024px) 340px, (min-width: 1440px) 480px, 33vw">
+    </div>
+                <a class="banner-a" href="tovary-dlia-dozvillia/fotoaparaty/index.htm"></a>
+    </div>                            </div>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+    </section>                    <section class="banners banners--2x banners--gaps-s">
+        <div class="banners__wrapper wrapper">
+            <div class="banners__container">
+                <div class="banners__grid">
+                                            <div class="banners__col banners__col--1of2">
+                            <div class="banners__item banners__item--radius-none banners__item--size-m">
+                                <div class="banner">
+    <div class="banner-image">
+        <img src="../content/images/45/720x432e90nn0/62286968230814.jpg" alt="" class="banner-img" srcset='../content/images/45/720x432e90nn0/62286968230814.jpg 720w' width="720" height="432" sizes="(max-width: 1024px) 512px, (min-width: 1440px) 720px, 50vw">
+    </div>
+            <div class="banner-border" style="border-color: #ffffff00;"></div>
+                <a class="banner-a" href="tovary-dlia-dozvillia/index.htm"></a>
+    </div>                            </div>
+                        </div>
+                                            <div class="banners__col banners__col--1of2">
+                            <div class="banners__item banners__item--radius-none banners__item--size-m">
+                                <div class="banner">
+    <div class="banner-image">
+        <img src="../content/images/5/720x432e90nn0/51191538968854.jpg" alt="" class="banner-img" srcset='../content/images/5/720x432e90nn0/51191538968854.jpg 720w' width="720" height="432" sizes="(max-width: 1024px) 512px, (min-width: 1440px) 720px, 50vw">
+    </div>
+                <a class="banner-a" href="tovary-dlia-dozvillia/ihrovi-symuliatory/index.htm"></a>
+    </div>                            </div>
+                        </div>
+                                    </div>
+            </div>
+        </div>
+    </section>            </div>                        <section class="frontBrands">
+        <div class="layout-wrap">
+            <div class="frontBrands-container">
+                <ul class="frontBrands-list __toggle">
+                                            <li class="frontBrands-i">
+                            <a class="frontBrands-a" href="brands/adidas/index.htm">
+                                <img alt='Adidas' title='' class='frontBrands-img' width='94' height='29' src='../content/images/42/94x29l75nn0/adidas-76268838966886.jpg'>                            </a>
+                        </li>
+                                            <li class="frontBrands-i">
+                            <a class="frontBrands-a" href="apple/index.htm">
+                                <img alt='Apple' title='' class='frontBrands-img' width='44' height='54' src='../content/images/43/44x54l75nn0/apple-74284042086866.jpg'>                            </a>
+                        </li>
+                                            <li class="frontBrands-i">
+                            <a class="frontBrands-a" href="brands/asics/index.htm">
+                                <img alt='Asics' title='' class='frontBrands-img' width='180' height='42' src='../content/images/41/180x42l75nn0/asics-68026457354426.jpg'>                            </a>
+                        </li>
+                                            <li class="frontBrands-i">
+                            <a class="frontBrands-a" href="brands/reebok/index.htm">
+                                <img alt='Reebok' title='' class='frontBrands-img' width='120' height='120' src='../content/images/40/120x120l75nn0/reebok-37298177224066.jpg'>                            </a>
+                        </li>
+                                            <li class="frontBrands-i">
+                            <a class="frontBrands-a" href="brands/convence/index.htm">
+                                <img alt='Converse' title='' class='frontBrands-img' width='136' height='23' src='../content/images/38/136x23l75nn0/convence-58022247627377.jpg'>                            </a>
+                        </li>
+                                            <li class="frontBrands-i">
+                            <a class="frontBrands-a" href="brands/air-jordan/index.htm">
+                                <img alt='Air Jordan' title='' class='frontBrands-img' width='180' height='56' src='../content/images/39/180x56l75nn0/air-jordan-70549184166722.jpg'>                            </a>
+                        </li>
+                                            <li class="frontBrands-i">
+                            <a class="frontBrands-a" href="#93/">
+                                <img alt='BUROMAX' title='' class='frontBrands-img' width='80' height='37' src='../content/images/44/80x37l75nn0/20840098212162.jpg'>                            </a>
+                        </li>
+                                            <li class="frontBrands-i">
+                            <a class="frontBrands-a" href="#94/">
+                                <img alt='ZiBi' title='' class='frontBrands-img' width='114' height='17' src='../content/images/45/114x17l75nn0/19766879743999.jpg'>                            </a>
+                        </li>
+                                                        </ul>
+                                    <div class="frontBrands-expander">
+                        <a class="btn __small" href="#" data-button-text='{"show": "Show more", "hide": "Reduce"}'>
+                            <span class="btn-content">Show more</span>
+                        </a>
+                    </div>
+                            </div>
+        </div>
+    </section>            <section class="frontInfo">
+                    <div class="frontInfo-section __1">
+                                <div class="layout-wrap">
+                    <div class="frontInfo-container __1 __single">
+                                                    <section class="frontInfo-about">
+        <article class="frontInfo-content">
+                            <div class="h2">About us</div>
+                        <div class="frontInfo-text " data-toggle-text='{"show":"Expand", "hide":"Reduce"}'>
+                <div class="text">
+                    <p><span style="font-size:14px;">We offer a wide range of the latest technological innovations that will help you make your life more comfortable, interesting and exciting. Our team works hard to provide you with the best products, reliable service and fast delivery. In our store you will find everything you need for a comfortable, exciting and efficient life in the modern world.</span></p>
+
+<p><span style="font-size:14px;">In our store, we strive to create the best conditions for you, so we offer convenient payment methods, fast delivery and a quality guarantee for all our products. Our goal is to make your shopping experience as pleasant and secure as possible.</span></p>
+
+<p><span style="font-size:14px;">We understand how important it is to be able to purchase the right product quickly and safely, so we work diligently to ensure maximum convenience for our customers.</span></p>
+
+<p><span style="font-size:14px;">Our team of specialists constantly studies the market and analyzes the feedback of our customers in order to always have the most current and most popular products in our assortment. We carefully select products, check their quality and make sure that you get only the best.</span></p>
+
+<p><span style="font-size:14px;">Join us today and let us help you make your technology dreams a reality. Stay up to date with the latest trends, get the best deals and enjoy the benefits of modern electronic life with us.</span></p>
+                </div>
+            </div>
+        </article>
+    </section>                                            </div>
+                </div>
+            </div>
+            </section>    
+        </main>
+        <footer class="footer">
+    <div class="footer__container">
+        <div class="footer__wrapper wrapper">
+            <div class="footer__columns">
+                                    <div class="footer__col footer__col--double">
+                        <div class="footer__col-wrap">
+                                                            <div class="footer__logo">
+                    <img alt='DemoStore - a demo online store' class='footer__logo-img' width='200' height='100' src='../content/images/2/200x100l90nn0/74381660788681.jpg' srcset="
+                            ../content/images/2/200x100l90nn0/74381660788681.jpg 1x,/content/images/2/400x200l90nn0/74381660788681.jpg 2x">            </div>                                                            <div class="footer__block">
+        We accept        <div class="footer__payment">
+                                                <a href="https://www.liqpay.ua" target="_blank" rel="nofollow" class="footer__payment-item"><img alt='Принимаем оплату Visa/Mastercard через Liqpay' width='88' height='20' src='../content/images/50/88x20l80nn0/34905029336611.jpg'></a>
+                                    </div>
+    </div>                                                            <div class="footer__copyright">
+    © 2024</div>                                                            <div class="footer__mobile-version">
+    <a href="index.htm?v=mobile" class="footer__link" rel="nofollow">
+        <svg class="icon icon--mobile"><use xlink:href="#icon-mobile"></use></svg>
+        Mobile version    </a>
+</div>                                                            <div class="footer__development footer__development--text-link">
+    <div class="footer__development-container">
+        <a href="https://horoshop.eu" class="footer__development-link" target="_blank">
+            Powered by Horoshop        </a>
+        <div class="footer__development-logo">
+            <svg class="icon icon--dev" role="img">
+                <use xlink:href="#icon-horoshop_en"></use>
+            </svg>
+        </div>
+    </div>
+</div>                                                    </div>
+                    </div>
+                                                                    <div class="footer__col ">
+                        <div class="footer__col-wrap">
+                                                            <div class="footer__block">
+    <div class="footer__heading">Catalog</div>
+    <ul class="footer__menu">
+        <li class="footer__menu-item "><a href="tovary-dlia-dozvillia/vr-okuliary/index.htm" class="footer__link">VR glasses</a></li><li class="footer__menu-item "><a href="tovary-dlia-dozvillia/index.htm" class="footer__link">Leisure products</a></li><li class="footer__menu-item "><a href="khobi-ta-sport/index.htm" class="footer__link">Hobbies and sports</a></li><li class="footer__menu-item "><a href="masazhery/index.htm" class="footer__link">Massagers</a></li><li class="footer__menu-item "><a href="turystychni-hadzhety/index.htm" class="footer__link">Travel gadgets</a></li>    </ul></div>                                                    </div>
+                    </div>
+                                                    <div class="footer__col ">
+                        <div class="footer__col-wrap">
+                                                            <div class="footer__block">
+    <div class="footer__heading">For customers</div>
+    <ul class="footer__menu">
+        <li class="footer__menu-item "><a href="#" class="footer__link" data-modal="#sign-in">Sign in</a></li><li class="footer__menu-item "><a href="o-nas/index.htm" class="footer__link">About us</a></li><li class="footer__menu-item "><a href="oplata-i-dostavka/index.htm" class="footer__link">Payment and delivery</a></li><li class="footer__menu-item "><a href="obmen-i-vozvrat/index.htm" class="footer__link">Returns & Exchanges</a></li><li class="footer__menu-item "><a href="kontaktnaja-informacija/index.htm" class="footer__link">Contacts</a></li><li class="footer__menu-item "><a href="blog/index.htm" class="footer__link">Blog</a></li><li class="footer__menu-item "><a href="store-reviews/index.htm" class="footer__link">Store reviews</a></li>    </ul></div>                                                            <div class="footer__block">
+    Stay connected    <div class="footer__social">
+        <a class="footer__social-icon" data-fake-href="https://www.facebook.com/horoshop.com.ua" rel="nofollow" target="_blank" title="Facebook"><svg class="icon-fb"><use xlink:href="#icon-fb"></use></svg></a>
+            <a class="footer__social-icon" data-fake-href="https://twitter.com/" rel="nofollow" target="_blank" title="Twitter"><svg class="icon-tw"><use xlink:href="#icon-tw"></use></svg></a>
+            <a class="footer__social-icon" data-fake-href="https://instagram.com/" rel="nofollow" target="_blank" title="Instagram"><svg class="icon-ig"><use xlink:href="#icon-ig"></use></svg></a>
+            <a class="footer__social-icon" data-fake-href="viber://pa?chatURI=" rel="nofollow" target="_blank" title="Viber"><svg class="icon-viber"><use xlink:href="#icon-viber"></use></svg></a>    </div>
+</div>                                                    </div>
+                    </div>
+                                                    <div class="footer__col footer__col--double">
+                        <div class="footer__col-wrap">
+                                                            <div class="footer__heading">Contact info</div>
+<div class="footer__contacts footer__contacts--columns">
+    <div class="footer__contacts-group">
+                    <svg class="icon icon--phone">
+                <use xlink:href="#icon-phone"></use>
+            </svg>
+                            <div class="footer__contacts-item">
+                                <a data-fake-href="tel:%2B380440000000" class="footer__contacts-item-link j-phone-item" data-index="1">
+                    095 000-00-00                </a>
+            </div>
+                    <div class="footer__contacts-item">
+                                <a data-fake-href="tel:%2B380440000000" class="footer__contacts-item-link j-phone-item" data-index="2">
+                    095 000-00-00                </a>
+            </div>
+                            <a class="footer__link" href="#" data-modal="#call-me">Callback</a>
+                        </div>
+    <div class="footer__contacts-group">
+                                    <div class="footer__contacts-item">
+                                            <svg class="icon icon--viber">
+                            <use xlink:href="#icon-viber"></use>
+                        </svg>
+                                        <a data-fake-href="viber://chat?number=%2B380950000000" class="footer__link">
+                        095 000-00-00                    </a>
+                </div>
+                            <div class="footer__contacts-item">
+                                        <a data-fake-href="viber://chat?number=%2B" class="footer__link">
+                                            </a>
+                </div>
+                                                                                <div class="footer__contacts-item">
+                                            <svg class="icon icon--email">
+                            <use xlink:href="#icon-email"></use>
+                        </svg>
+                                        <a data-fake-href="mailto:mail%40mail.com" class="footer__link">
+                        mail@mail.com                    </a>
+                </div>
+                        </div></div>                                                    </div>
+                    </div>
+                                            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="upButton" id="upButton">
+    <a class="upButton-btn" href="#">
+        <span class="upButton-btn__hint">Up</span>
+        <svg class="icon icon--arrow-up"><use xlink:href="#icon-arrow-up"></use></svg>
+    </a>
+</div>
+    </div>
+        <section id="sign-in" class="popup __login" style="display: none;">
+        <div class="popup-block login">
+            <a class="popup-close" onclick="Modal.close();" href="javascript:;">
+                <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
+            </a>
+            <div class="login-header">
+                <div class="login-tabs j-auth-tabs">
+                    <a href="#j-popup-tab-auth" class="login-tabs-i __active">
+                        <span class="login-tabs-txt">Sign in</span>
+                    </a>
+                    <a href="#j-popup-tab-signup" class="login-tabs-i">
+                        <span class="login-tabs-txt">Sign up</span>
+                    </a>
+                </div>
+                <div class="socLogin">
+    <div class="socLogin-h">Sign in with</div>
+    <div class="socLogin-b">
+                                                <a rel="nofollow" data-fake-href="/en/security/OAuthRedirect/?soc=facebook&saveCart=0" onclick="OAuth.setScenario('default'); showPopup(this.href, 997, 490); return false;" class="socialIcon">
+                    <svg class="icon icon--fb">
+                        <use xlink:href="#icon-fb"></use>
+                    </svg>
+                </a>
+                                                                                                <a rel="nofollow" data-fake-href="/en/security/OAuthRedirect/?soc=google&saveCart=0" onclick="OAuth.setScenario('default'); showPopup(this.href, 997, 490); return false;" class="socialIcon">
+                    <svg class="icon icon--gp">
+                        <use xlink:href="#icon-gp"></use>
+                    </svg>
+                </a>
+                                    </div>
+</div>            </div>
+            <div class="login-body">
+                <div class="login-tabs-content" data-content-id="j-popup-tab-auth">
+                    <form method="post" id="login_form_id" data-action="/en/security/login/" onsubmit="submit_authorization(this); return false;">
+    <div class="j-login-info-message"></div>
+    <dl class="form">
+        <dt class="form-head">Email</dt>
+        <dd class="form-item">
+            <input type="email" name="user[email]" class="field j-focus" tabindex="1" autocapitalize="off">
+        </dd>
+        <dt class="form-head">Password</dt>
+        <dd class="form-item">
+            <input type="password" name="user[pass]" class="field" tabindex="2">
+        </dd>
+        <dd class="form-item __submit">
+            <span class="btn __special">
+                <span class="btn-content">Sign in</span>
+                <input type="submit" value="Sign in" class="btn-input" tabindex="3">
+            </span>
+            <span class="form-passRecover">
+                <a href="javascript:void(0);" class="a-pseudo" data-modal="#password-recovery">
+                    Forgot your password?                </a>
+            </span>
+        </dd>
+    </dl>
+    <script>(function(w) {w.INIT.add(function() {(function ($) {var i=$('<input>').attr({name:"CSRFToken",type:'hidden'}).val("668e65cb023fd445d08d4122972439b0a6786f7f");$("#login_form_id").append(i);})(jQuery)}, 'jQuery' in window)})(window)</script></form>                </div>
+                <div class="login-tabs-content" data-content-id="j-popup-tab-signup">
+                    <form method="post" id="signup-form" data-action="/en/security/sign_up/" onsubmit="submit_new_registration(this); return false;" novalidate="">
+    <div class="j-signup-info-message"></div>
+    <dl class="form">
+        <dt class="form-head __name">Name</dt>
+        <dd class="form-item">
+            <input type="text" name="user[title]" class="field" value="" tabindex="1">
+        </dd>
+        <dt class="form-head">Email</dt>
+        <dd class="form-item">
+            <input type="text" autocapitalize="off" name="user[email]" class="field" value="" tabindex="2">
+        </dd>
+                <dt class="form-head">Password</dt>
+        <dd class="form-item">
+            <input type="password" name="user[pass]" class="field" value="" tabindex="3">
+        </dd>
+                <dd class="form-item __submit">
+                                    <span class="btn __special j-submit ">
+                <span class="btn-content">Sign up</span>
+                <input type="submit" value="Sign up" class="btn-input" tabindex="7">
+            </span>
+                            <div class="user-agreement user-agreement--signup ">
+            By confirming the registration, I accept the terms of the user agreement    </div>                    </dd>
+    </dl>
+    <script>(function(w) {w.INIT.add(function() {(function ($) {var i=$('<input>').attr({name:"CSRFToken",type:'hidden'}).val("084ccd44f0e7e93bba0ef616a3e910fd4c3794eb");$("#signup-form").append(i);})(jQuery)}, 'jQuery' in window)})(window)</script></form>
+
+<script>
+  (function (w) {
+    w.INIT.add(function () {
+          }, w.Face)
+  })(window);
+</script>
+                </div>
+            </div>
+        </div>
+        <script>
+          (function (w) {
+            w.INIT.add(function () {
+              initTabs('#sign-in .j-auth-tabs a', {
+                onChange: function (currentBtn, currentTabContainer, tabContainers) {
+                  $(tabContainers).find('.popup-msg').empty();
+                  $(tabContainers).find('form').reset();
+                  $(currentTabContainer).find(':input').errorBox().filter(':first').focus();
+                }
+              });
+            }, w.initTabs)
+          })(window);
+        </script>
+    </section>
+
+    <section id="password-recovery" class="popup __password" style="display: none;">
+        <div class="popup-block login">
+            <a class="popup-close" onclick="Modal.close();" href="javascript:;">
+                <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
+            </a>
+            <div class="popup-header">
+                <div class="popup-title">Password reset</div>
+            </div>
+            <div class="popup-body">
+                <div class="popup-msg j-recovery-message">
+                    Enter your email address and we'll send you the information for password reset.                </div>
+                <form id="password-recovery-form" method="post" data-action="/en/security/password-recovery/" onsubmit="password_recovery_submit(this); return false;">
+    <dl class="form">
+        <dt class="form-head">Email</dt>
+        <dd class="form-item">
+            <input type="email" autocapitalize="off" value="" class="field j-focus" name="user[email]">
+        </dd>
+        <dd class="form-item __submit">
+                            <span class="btn __special">
+                                <span class="btn-content">Reset</span>
+                                <input type="submit" value="Reset" class="btn-input">
+                            </span>
+        </dd>
+    </dl>
+    <script>(function(w) {w.INIT.add(function() {(function ($) {var i=$('<input>').attr({name:"CSRFToken",type:'hidden'}).val("d1a3219fef1cf2e8f2f4ba5aec349bc70e71bb8c");$("#password-recovery-form").append(i);})(jQuery)}, 'jQuery' in window)})(window)</script></form>            </div>
+        </div>
+    </section>
+            <div id="modal-overlay" class="overlay"></div>
+    <script src='../bundles/default/production/main-2b4841d6.d2f14e0390f66b94a2b1.js'></script>
+<script src='../bundles/default/production/runtime.81af93c644b99b99d27e.js'></script>
+<script src='../bundles/default/production/npm.spritespin.ae06fb361a59b14f6252.js'></script>
+<script src='../bundles/default/production/npm.inputmask.711c890d9833df84dc83.js'></script>
+<script src='../bundles/default/production/npm.jquery-13d81934.3f02b0283ddee7920906.js'></script>
+<script src='../bundles/default/production/npm.sticky-sidebar.9b1aed998b438a0502a9.js'></script>
+<script src='../bundles/default/production/npm.sourcebuster.190de06c3cb5f9541d9a.js'></script>
+<script src='../bundles/default/production/npm.popper.js.46626cd1331d2ebd1e93.js'></script>
+<script src='../bundles/default/production/npm.css-element-queries.e72e021709f421f869d0.js'></script>
+<script src='../bundles/default/production/main-44867c3a.6bc16e180baeaa05e8e0.js'></script>
+<script src='../bundles/default/production/main-e498c03b.c754bd6c04b4bc02d3a9.js'></script>
+<script src='../bundles/default/production/main-12f89153.c4078d0f6e3f24171a12.js'></script>
+<script src='../bundles/default/production/main-2d8f051b.95225d1c6f77100fe2c2.js'></script>
+<script src='../bundles/default/production/main-5ae6720c.4255e1ed76eacd93707e.js'></script>
+<script src='../bundles/default/production/main-886f090d.998d71870c275b9cbf2a.js'></script>
+<script src='../bundles/default/production/main-47f80845.cd90b100a18fced03795.js'></script>
+<script src='../bundles/default/production/npm.jquery-b59a2ec2.c32010b03ac8c4e981f5.js'></script>
+
+<script>
+  (function (w) {
+    w.INIT.execute();
+  })(window)
+</script>
+                        <section id="cart" class="popup __cart" style="display: none;">
+    <div class="popup-block">
+        <a class="popup-close" onclick="Modal.close(); return false;" href="javascript:;">
+            <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
+        </a>
+        <div class="popup-title">Cart</div>
+        <div class="cart">
+            <div class="cart-content">
+                <div class="loader-container j-cart-loader">
+                    <div class="loader-spinner loader-spinner--block"></div>
+                </div>
+                <table class="cart-items">
+                    <thead>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td class="cart-header">
+                            <div class="cart-header-b"><span class="cart-header-content">Quantity</span></div>
+                        </td>
+                        <td class="cart-header __cost">
+                            <div class="cart-header-b"><span class="cart-header-content">Out of stock</span></div>
+                        </td>
+                    </tr>
+                    </thead>
+                                                                                <tfoot class="cart-foot">
+                                            <tr>
+                            <td class="cart-cell __image"></td>
+                            <td class="cart-cell" colspan="3">
+                                                                                                            <div class="cart-discount">
+                                            <div class="cart-discount-l">
+                                                <a class="link link--pseudo" href="javascript:" onclick="Modal.open('#sign-in'); return false;">
+                                                        <span class="link__text">
+                                                            Sign in to view your personal discount                                                        </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                                                                                                                                                                                <div class="cart-discount">
+                                                <div class="cart-discount-l">
+                                                    <div class="cart-discount-info j-coupon-add-container">
+                                                        <a class="link link--pseudo j-coupon-add" href="#">
+                                                            <span class="link__text">
+                                                        Apply discount code                                                    </span></a>
+                                                </div>
+                                                <div class="cart-discount-coupon j-coupon-add-form" style="display: none;">
+                                                    <div class="coupon">
+                                                        <div class="coupon-input">
+                                                            <input class="coupon-field field errorBox-popup j-coupon-input" value="" autocomplete="off" placeholder="gift card or promo code" type="text">
+                                                            <div class="coupon-cancel j-coupon-cancel">
+                                                                <svg class="icon icon--cross-bold"><use xlink:href="#icon-cross-bold"></use></svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="coupon-submit">
+                                                            <button class="btn __small j-coupon-submit">
+                                                                <span class="btn-content">OK</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                                                                                </td>
+                        </tr>
+                                        <tr>
+                        <td class="cart-footer" colspan="4">
+                            <div class="cart-summary">
+                                <div class="cart-footer-h">Total</div>
+                                <div class="cart-footer-b cart-cost">
+                                    $0                                </div>
+                            </div>
+                            <div class="cart-buttons">
+                                <div class="cart-btnBack">
+                                    <button class="btn __clear" onclick="Modal.close(); return false;">
+                                        <span class="btn-content">
+                                            <svg class="icon icon--arrow-left2"><use xlink:href="#icon-arrow-left2"></use></svg>
+                                            Back to shopping                                        </span>
+                                    </button>
+                                </div>
+                                <div class="cart-btnOrder">
+                                    <a class="btn __special" rel="nofollow" href="index.htm">
+                                        <span class="btn-content">Proceed to checkout</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="j-cart-additional">
+                            </div>
+        </div>
+    </div>
+</section>
+<script>
+  (function (w) {
+    w.INIT.add(function () {
+      const ajaxCart = AjaxCart.getInstance();
+
+      ajaxCart.skin = "modal";
+      ajaxCart.remove_product_on_zero = true;
+    }, w.AjaxCart);
+  })(window);
+</script>            <section class="compare" id="uid9323e6a2ef050b97d3cb5154668226bf" style="display: none;">
+    <div class="compare-container">
+        <div class="compare-close j-close" role="button">
+            <svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg>
+        </div>
+        <div class="compare-header">
+            <div class="compare-header-wrp">
+                <div class="compare-h">Compare items</div>
+                <div class="compare-filter j-tabs"></div>
+            </div>
+        </div>
+        <div class="j-loader" style="position: absolute;top:55px;left:0;right:0;bottom:0; z-index: 1000; background: rgba(255,255,255,.5)"><div class="loader" style="width: 10px; height: 10px; position: absolute; top: 50%;left:50%;margin:-5px 0 0 -5px;"></div></div>
+        <div class="compare-body j-content"></div>
+    </div>
+</section>
+
+<script>
+  (function (w) {
+    w.INIT.add(function () {
+      ComparisonTable.createInstance("default", "#uid9323e6a2ef050b97d3cb5154668226bf");
+    }, w.ComparisonTable)
+  })(window);
+</script>        </body>
+<!-- Memory: 6 MB -->
+</html><!-- 0.6s -->
